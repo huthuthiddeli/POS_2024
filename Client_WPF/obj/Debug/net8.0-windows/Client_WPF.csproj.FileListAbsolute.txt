@@ -26,3 +26,32 @@ C:\Users\Jonas\OneDrive - HTL Saalfelden\4AHINF\POS\SemesterProjekt_MAIER\Client
 C:\Users\Jonas\OneDrive - HTL Saalfelden\4AHINF\POS\SemesterProjekt_MAIER\Client_WPF\bin\Debug\net8.0-windows\Icons\horseicon.jpg
 C:\Users\Jonas\OneDrive - HTL Saalfelden\4AHINF\POS\SemesterProjekt_MAIER\Client_WPF\obj\Debug\net8.0-windows\UserDialog.g.cs
 C:\Users\Jonas\OneDrive - HTL Saalfelden\4AHINF\POS\SemesterProjekt_MAIER\Client_WPF\obj\Debug\net8.0-windows\UserDialog.baml
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Icons\horseicon.jpg
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Icons\loginicon.jpg
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Client_WPF.exe
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Client_WPF.deps.json
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Client_WPF.runtimeconfig.json
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Client_WPF.dll
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\bin\Debug\net8.0-windows\Client_WPF.pdb
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Login.g.cs
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\ShowHorses.g.cs
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\UserDialog.g.cs
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF_MarkupCompile.cache
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF_MarkupCompile.lref
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Login.baml
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\ShowHorses.baml
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\UserDialog.baml
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.g.resources
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.AssemblyInfoInputs.cache
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.AssemblyInfo.cs
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.csproj.CoreCompileInputs.cache
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.sourcelink.json
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.dll
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\refint\Client_WPF.dll
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.pdb
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\Client_WPF.genruntimeconfig.cache
+C:\Users\Jonas\Documents\Programming\POS_2024\Client_WPF\obj\Debug\net8.0-windows\ref\Client_WPF.dll

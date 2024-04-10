@@ -1,49 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\",
+  "WorkspaceRootPath": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\userdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\userdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:userdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\encryptionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\encryptionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:encryptionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\httpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\httpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:httpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\showhorses.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\showhorses.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:showhorses.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\showhorses.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\showhorses.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:showhorses.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\onedrive - htl saalfelden\\4ahinf\\pos\\semesterprojekt_maier\\client_wpf\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -60,34 +60,32 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-07T17:27:53.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T17:27:53.452Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Login.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\Login.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\Login.xaml.cs",
               "RelativeDocumentMoniker": "Login.xaml.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\Login.xaml.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\Login.xaml.cs",
               "RelativeToolTip": "Login.xaml.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAAADUAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T16:42:08.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T16:42:08.71Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Horse.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\Horse.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\Horse.cs",
               "RelativeDocumentMoniker": "Horse.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\Horse.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\Horse.cs",
               "RelativeToolTip": "Horse.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAcwCcAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -97,9 +95,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "ShowHorses.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\ShowHorses.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\ShowHorses.xaml.cs",
               "RelativeDocumentMoniker": "ShowHorses.xaml.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\ShowHorses.xaml.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\ShowHorses.xaml.cs",
               "RelativeToolTip": "ShowHorses.xaml.cs",
               "ViewState": "AQIAAFQAAAAAAAAAAAAAAD8AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -109,34 +107,32 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "ShowHorses.xaml",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\ShowHorses.xaml",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\ShowHorses.xaml",
               "RelativeDocumentMoniker": "ShowHorses.xaml",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\ShowHorses.xaml",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\ShowHorses.xaml",
               "RelativeToolTip": "ShowHorses.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-03-25T20:41:23.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T20:41:23.963Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UserDialog.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\UserDialog.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\UserDialog.xaml.cs",
               "RelativeDocumentMoniker": "UserDialog.xaml.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\UserDialog.xaml.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\UserDialog.xaml.cs",
               "RelativeToolTip": "UserDialog.xaml.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T20:34:56.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T20:34:56.091Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\User.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\User.cs",
               "RelativeDocumentMoniker": "User.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\User.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\User.cs",
               "RelativeToolTip": "User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -146,22 +142,21 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "EncryptionHelper.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\EncryptionHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\EncryptionHelper.cs",
               "RelativeDocumentMoniker": "EncryptionHelper.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\EncryptionHelper.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\EncryptionHelper.cs",
               "RelativeToolTip": "EncryptionHelper.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAAACIAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T15:29:44.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T15:29:44.177Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "BetLocation.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\BetLocation.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\BetLocation.cs",
               "RelativeDocumentMoniker": "BetLocation.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\BetLocation.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\BetLocation.cs",
               "RelativeToolTip": "BetLocation.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAcwDIAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -171,22 +166,21 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "HttpClient.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\HttpClient.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\HttpClient.cs",
               "RelativeDocumentMoniker": "HttpClient.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\HttpClient.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\HttpClient.cs",
               "RelativeToolTip": "HttpClient.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAqwCEAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T10:37:24.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T10:37:24.451Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Jonas\\OneDrive - HTL Saalfelden\\4AHINF\\POS\\SemesterProjekt_MAIER\\Client_WPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
