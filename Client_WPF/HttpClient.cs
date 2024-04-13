@@ -129,8 +129,6 @@ namespace Client_WPF
 
                 if (respones.IsSuccessStatusCode)
                 {
-
-
                     string data = await respones.Content.ReadAsStringAsync();
                     u = JsonSerializer.Deserialize<User?>(data);
                     MainWindow.user = u;

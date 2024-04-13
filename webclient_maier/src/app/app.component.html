@@ -1,3 +1,16 @@
 <div app-header></div>
 
-<button style="padding-top: 50%;" (click)="button()"></button>
+<button style="margin-top: 50%; width: 100px; height: 100px;" (click)="buttonClicked()"></button>
+
+<ng-container [ngSwitch]="moduleName">
+    
+    <div app-user-login *ngSwitchCase="'user-component'">
+        
+    </div>
+    
+</ng-container>
+
+
+<div style="text-align: center; margin-top: 50%; width: 100px; height: 100px;" *ngFor="let post of posts | async">
+    {{post | json}}
+</div>

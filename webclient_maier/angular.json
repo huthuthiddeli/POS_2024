@@ -68,6 +68,10 @@
               "buildTarget": "webclient_maier:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "src/proxy.config.json"
+          },
+          
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -96,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

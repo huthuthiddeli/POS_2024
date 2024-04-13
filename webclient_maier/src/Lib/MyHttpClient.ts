@@ -1,24 +1,21 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import Horse from '../Utitlity/Horse';
 import User from '../Utitlity/User';
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { InjectorInstance } from './Injector';
 
-export default class MyHttpClient{
+@Injectable({
+  providedIn: 'root'
+})
 
-    async GetAllUsers(): Promise<User[] | null>{
-        
-        //let localCollection: any = HttpClient.get('localhost:8080/Pferderennen/Game/GetActiveUsers');
-        
+export default class MyHttpService {
 
-    
-        return null;
-    }
+  constructor(private http: HttpClient) { }
+
+  // Your methods using HttpClient here
 
 
-
-
-
-
-
-
+  public getUsers(): Observable<User[]> {
+    return this.http.get<User[]>('localhost:8080/Pferderennen/Game/ActiveUsers');
+  }
 }

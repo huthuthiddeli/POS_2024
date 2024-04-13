@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/Pferderennen") // This means URL's start with /demo (after Application path)
+@CrossOrigin(origins="http://localhost:4200")
 public class MainController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);

@@ -18,8 +18,12 @@ body {
 }
 
 .logo {
-  width: 50px; /* Adjust according to your image */
+  width: 10px; /* Adjust according to your image */
   height: auto;
+}
+
+.image{
+  border-radius: 50%;
 }
 
 .title {

@@ -1,28 +1,24 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import MyHttpClient from '../../Lib/MyHttpClient';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: '[app-header]:not(p)',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
   encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent {
 
-  constructor(private router : Router){}
-
-  client : MyHttpClient = new MyHttpClient();
-
-  profileClicked(path : string):void{
+  constructor(private myHttpclient: HttpClient){}
 
 
-    //this.router.navigate([`${path}`]);
+  profileClicked():void{
 
-    
+    console.log("ProfileClicked!");
 
 
   }
