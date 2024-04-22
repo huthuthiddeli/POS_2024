@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -68,9 +69,6 @@
               "buildTarget": "webclient_maier:build:development"
             }
           },
-          "options": {
-            "proxyConfig": "src/proxy.config.json"
-          },
           
           "defaultConfiguration": "development"
         },
@@ -93,6 +91,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []

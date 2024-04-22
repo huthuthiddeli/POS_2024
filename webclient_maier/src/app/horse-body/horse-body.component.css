@@ -1,128 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.track {
+    width: 100%;
+    height: 150px;
+    background-color: #e6e6e6;
+    position: relative;
+    overflow: hidden;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f1f2f6;
+.horse {
+    width: 50px;
+    height: 30px;
+    background-color: brown;
+    position: absolute;
+    top: 60px; /* Adjust this value based on the height of the track */
+    transition: left 1s linear;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  overflow: hidden;
-}
-
-.form-container {
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 50px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.6s ease;
-}
-
-.form-container.sign-up-container {
-  transform: translateX(100%);
-}
-
-.form-container h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.form-container input {
-  width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form-container button {
-  width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  background-color: #2980b9;
-  color: #fff;
-  cursor: pointer;
-}
-
-.overlay-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease;
-  transform: translateX(-50%);
-}
-
-.overlay {
-  position: relative;
-  width: 200%;
-  height: 100%;
-  transition: transform 0.6s ease;
-}
-
-.overlay-panel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 40px;
-  text-align: center;
-}
-
-.overlay-left {
-  transform: translateX(-20%);
-}
-
-.overlay-right {
-  right: 0;
-  transform: translateX(0);
-}
-
-.overlay-panel h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.overlay-panel p {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.ghost {
-  border: 1px solid #2980b9;
-  background-color: transparent;
-  color: #2980b9;
-}
-
-.ghost:hover {
-  background-color: #2980b9;
-  color: #fff;
-}
+#horse1 { left: 0%; }
+#horse2 { left: 0%; }
+#horse3 { left: 0%; }
+#horse4 { left: 0%; }
+#horse5 { left: 0%; }
