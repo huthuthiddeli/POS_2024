@@ -1,27 +1,21 @@
-
+import {PasswordHasher} from "../Lib/PasswordHasher";
 
 export default class User{
-    private name : string;
-    private password : string;
-    private passwordHashed : string;
+    private username : string;
     private money : number;
+    private passwordHashed : string;
 
 
-    public constructor(name : string, password : string, passwordHashed : string, money : number ){
-        this.name = name;
-        this.password = password;
-        this.passwordHashed = passwordHashed;
+    public constructor(name : string, money : number, passwordHashed : string ){
+        this.username = name;
         this.money = money;
+        this.passwordHashed = passwordHashed;
     }
 
 
        // Getter methods
-       getName(): string {
-        return this.name;
-    }
-
-    getPassword(): string {
-        return this.password;
+       getUsername(): string {
+        return this.username;
     }
 
     getPasswordHashed(): string {
@@ -34,11 +28,7 @@ export default class User{
 
     // Setter methods
     setName(name: string): void {
-        this.name = name;
-    }
-
-    setPassword(password: string): void {
-        this.password = password;
+        this.username = name;
     }
 
     setPasswordHashed(passwordHashed: string): void {
@@ -50,7 +40,7 @@ export default class User{
     }
 
     // Method to print person's details
-    printDetails(): void {
-        console.log(`Name: ${this.name}, Money: ${this.money}`);
+    printDetails(): string {
+        return (`Name: ${this.username}, Money: ${this.money}, HashedPassword: ${this.passwordHashed}`);
     }
 }

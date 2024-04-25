@@ -6,6 +6,7 @@ import User from '../../Utitlity/User';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import GameManager from "../../Utitlity/GameManager";
 
 
 @Component({
@@ -33,12 +34,6 @@ export class HeaderComponent {
 
 
   profileClicked():void{
-
-
-
-
-
-
       this.fetchActiveUsers().subscribe(
         (users: User) => {
           alert('Active users: ' + JSON.stringify(users));
@@ -48,5 +43,6 @@ export class HeaderComponent {
           alert('Error fetching active users. Please try again later.');
         }
       );
+      console.log(GameManager.GetInstance().GetUser());
     }
 }

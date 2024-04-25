@@ -79,6 +79,8 @@ public class MainController {
         return mapper.writeValueAsString(location.getActiveUsers());
     }
 
+
+    //OAUTH2
     @GetMapping("/Game/iterate")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody String singleIteration() throws JsonProcessingException {

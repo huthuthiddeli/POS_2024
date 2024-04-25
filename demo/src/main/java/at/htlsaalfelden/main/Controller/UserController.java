@@ -43,12 +43,12 @@ public class UserController {
             }
         }
 
-        return userService.save(new UserDTO(u.username(), 1000, u.password(), u.passwordHashed()));
+        return userService.save(new UserDTO(u.username(), 1000, u.passwordHashed()));
     }
 
     @PostMapping("/Login")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody UserDTO logginAccount(@RequestBody UserDTO userDTO){
+    public @ResponseBody UserDTO logginAccount(@RequestBody UserDTO userDTO) throws JsonProcessingException {
         List<UserDTO> users = userService.findAll();
 
         for(UserDTO existingUser : users){
@@ -56,9 +56,9 @@ public class UserController {
                 return existingUser;
             }
         }
+
         return null;
     }
-
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

@@ -3,16 +3,17 @@
 
     <img class="columns-start-1 row-start-1 scale-150 m-5 border border-solid border-blue-500 border-2 justify-self-start" src="../../assets/icons/raceicon.jpg" alt="Logo" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
 
-    <div class="row-start-1 columns-start-2 content-center border border-solid border-blue-500 border-2">Pferderennen</div>
+    <div class="row-start-1 columns-start-2 content-center border border-r-2 border-solid border-blue-500 border-2">Pferderennen</div>
 
 
-    <button class="row-start-1 columns-start-3 content-right border border-solid border-blue-500 border-2 justify-self-end m-5" mat-button [matMenuTriggerFor]="menu">Login</button>
+    <!--<button class="row-start-1 columns-start-3 content-right border border-solid border-blue-500 border-2 justify-self-end m-5" mat-button [matMenuTriggerFor]="menu">Login</button>-->
+
+    <img class="row-start-1 columns-start-3 content-right border border-solid border-blue-500 border-1  scale-75 justify-self-end" mat-button [matMenuTriggerFor]="menu" src="../../assets/icons/images.jpg"/>
 
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" class="basis-1/2">Login</button>
-      <button mat-menu-item routerLink="/sign-up"  routerLinkACtive="active" ariaCurrentWhenActive="page" class="basis ">Sign-up</button>
+      <button mat-menu-item routerLink="/sign-up"  routerLinkACtive="active" ariaCurrentWhenActive="page" class="basis">Sign-up</button>
     </mat-menu>
-
   </nav>
 </div>
 
@@ -20,7 +21,7 @@
 
 
 
-<button (click)="profileClicked()">OK</button>
+<button class="p-5 border border-solid border-amber-900" (click)="profileClicked()">OK</button>
 
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>

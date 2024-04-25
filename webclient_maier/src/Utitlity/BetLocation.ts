@@ -1,13 +1,12 @@
 import User from "./User";
 import Horse from './Horse';
 
-class BetLocation{
+export default class BetLocation{
 
     private user: User;
     private trackLength: number;
     private trackName: string;
     private horses : Horse[];
-
 
     constructor(user: User, trackLength: number, trackName: string, horses: Horse[]){
         this.user = user;

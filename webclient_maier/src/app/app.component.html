@@ -1,15 +1,1 @@
 <div app-header></div>
-
-
-<container-element id="container" [ngSwitch]="moduleName">
-    <div *ngSwitchCase="'app-user-component'" app-user-login></div>
-
-    <div *ngSwitchCase="'dog'" app-horse-body></div>
-
-
-    <div *ngSwitchDefault>default</div>
-</container-element>
-
-
-<button style="margin-top: 50%; width: 100px; height: 100px;" (click)="buttonClicked()">Content</button>
-
