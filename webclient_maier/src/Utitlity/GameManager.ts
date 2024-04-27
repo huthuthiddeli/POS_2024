@@ -23,9 +23,9 @@ export default class GameManager {
     this.gamelocation = gameLocation;
   }
 
-  public GetGameLocation(): BetLocation | null{
-    if(this.gamelocation == null){
-      return null;
+  public GetGameLocation(): BetLocation | undefined{
+    if(this.gamelocation == undefined){
+      return undefined;
     }
 
     return this.gamelocation;

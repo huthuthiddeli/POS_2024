@@ -1,41 +1,45 @@
+export default class Horse {
+  private _name: string;
+  private _speed: number;
+  private _bets: Record<string, number>; // Assuming bets is a mapping of string to number
+  private _runDistance: number = 0;
 
+  constructor(name: string, speed: number, bets: Record<string, number> = {}) {
+    this._name = name;
+    this._speed = speed;
+    this._bets = bets;
+  }
 
+  public get name(){
+    return this._name;
+  }
 
-export default class Horse{
+  public set name(name:string){
+    this._name = name;
+  }
 
-    private name: string;
-    private speed: number;
-    private bets: {};
-    private runDistance = 0;
+  public get speed(){
+    return this._speed;
+  }
 
+  public set speed(speed:number){
+    this._speed = speed;
+  }
 
+  public get bets(): Record<string, number> {
+    return this._bets;
+  }
 
-    public constructor(name: string, speed: number, bets: {}, runDistance: number){
-        this.name = name;
-        this.speed = speed;
-        this.bets = bets;
-        this.runDistance = runDistance;
-    }
+  public set bets(bets: Record<string, number>){
+    this.bets = bets;
+  }
 
+  public get runDistance(){
+    return this._runDistance;
+  }
 
-    public getName():string{
-        return this.name;
-    }
+  public set runDistance(distance:number){
+    this._runDistance = distance;
+  }
 
-    public getSpeed():number{
-        return this.speed;
-    }
-
-    public getBets(): {}{
-        return this.bets;
-    }
-
-    public getRunDistance():number{
-        return this.runDistance;
-    }
-
-    //TODO: MAKE IT A HASHSET/DICTIONARY
-    public addBet(betterName: string, value:number){
-        this.bets = {betterName, value};
-    }
 }

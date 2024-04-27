@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Component, ElementRef, ViewChild, ViewEncapsulation, OnInit} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import User from "../../Utitlity/User";
 import {PasswordHasher} from "../../Lib/PasswordHasher";
 import {ActivatedRoute, Router} from "@angular/router";
 import GameManager from "../../Utitlity/GameManager";
+import BetLocation from "../../Utitlity/BetLocation";
 
 @Component({
   selector: '[app-user-login]:not(p)',
@@ -56,11 +57,20 @@ export class UserLoginComponent {
       let json: string = JSON.stringify(obj);
 
       this.myHttpclient.post<User>('http://localhost:8080/User/Login', json, {headers}).subscribe(
-        (response) => {
-
+        async(response) => {
           GameManager.GetInstance().SetUser(response);
-          this.router.navigate(['/'])
+          json = JSON.stringify(GameManager.GetInstance().GetUser());
+
+          this.myHttpclient.post<BetLocation>('http://localhost:8080/Pferderennen/Game/innit', json, {headers}).subscribe(
+            async (responeBetlocation: BetLocation) => {
+              GameManager.GetInstance().SetGameLocation(responeBetlocation);
+              await this.router.navigate(['/'])
+            }
+          )
         }
       );
+
+
+
     }
 }

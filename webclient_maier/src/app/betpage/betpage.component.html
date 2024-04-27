@@ -1,0 +1,36 @@
+<div class="grid grid-rows-4 grid-cols-2 gap-4">
+
+  <div #horsenames class="row-starter-1 column-starter-1 border border-solid border border-black h-full w-full bg-amber-200 p-3">
+    <h1 class="flex justify-self-center">Avaliable Horses!</h1>
+    <ul class="horses m-5">
+        <li *ngFor="let horse of horses" class="flex justify-center">
+          <h1 class="flex justify-self-center p-5 border border-solid border-black bg-green-600 m-2" (click)="test(horse)">{{horse.name}} {{horse.speed}} {{horse.runDistance}}</h1>
+        </li>
+    </ul>
+  </div>
+
+  <div class="row-starter-1 columns-starter-2 row-span-4 border border-solid border-black m-2">
+
+    <div class="grid grid-rows-subgrid grid-cols-subgrid gap-4 content-center">
+
+      <h1 class="row-starter-1 columns-starter-2 text-2xl flex justify-self-center">Votepannel!</h1>
+
+      <div #items class="grid-rows-2 grid-cols-2 text-2xl flex justify-self-center">
+        <ul class="bets m-5">
+          <li *ngFor="let bets of Object.entries(betList)">
+            <h1 class="m-2 p-5 text-2xl border border-solid border-black" >{{bets[0] + "hello "  + bets[1]}}</h1>
+          </li>
+        </ul>
+
+        <input type="number" class="row-starter-3 columns-starter-2 flex justify-self-end border border-solid border-black p-5"/>
+        <input type="button" class="row-starter-4 columns-starter-1 flex justify-self-center border border-solid border-black p-5"/>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</div>

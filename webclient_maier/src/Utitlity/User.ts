@@ -14,7 +14,7 @@ export default class User{
 
 
        // Getter methods
-       getUsername(): string {
+    getUsername(): string {
         return this.username;
     }
 

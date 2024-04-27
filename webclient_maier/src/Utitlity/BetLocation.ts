@@ -3,33 +3,69 @@ import Horse from './Horse';
 
 export default class BetLocation{
 
-    private user: User;
-    private trackLength: number;
-    private trackName: string;
-    private horses : Horse[];
+  private _location: string;
+  private _horses: Horse[];
+  private _trackLength:number;
+  private _gameFinished: boolean;
+  private _winner: Horse;
+  private _gameStarted: boolean;
 
-    constructor(user: User, trackLength: number, trackName: string, horses: Horse[]){
-        this.user = user;
-        this.trackLength = trackLength;
-        this.trackName = trackName;
-        this.horses = horses;
+    constructor(location: string, horses:Horse[], trackLength:number, gameFinished: boolean, winner:Horse, gameStarted:boolean){
+        this._trackLength = trackLength;
+        this._location = location;
+        this._horses = horses;
+        this._gameFinished = gameStarted;
+        this._winner = winner;
+        this._gameStarted = gameStarted;
     }
 
-
-    public getUser():User{
-        return this.user;
+    public get location():string{
+      return this._location;
     }
 
-    public getTrackLength():number{
-        return this.trackLength;
+    public set location(location: string){
+      this._location = location;
     }
 
-    public getTrackName():string{
-        return this.trackName;
+    public get horses(): Horse[] {
+      return this._horses;
     }
 
-    public getHorses(): Horse[]{
-        return this.horses;
+    public set horses(horses:Horse[]){
+      this._horses = horses;
     }
+
+    public get trackLength(){
+      return this._trackLength;
+    }
+
+    public set trackLength(trackLength:number){
+      this._trackLength = trackLength;
+    }
+
+    public get gameFinished(){
+      return this._gameFinished;
+    }
+
+    public set gameFinished(gameFinished:boolean){
+      this._gameFinished = gameFinished;
+    }
+
+    public get winner(){
+      return this._winner
+    }
+
+    public set winner(winner:Horse){
+      this._winner = winner;
+    }
+
+    public get gameStarted(){
+      return this._gameStarted;
+    }
+
+    public set gameStarted(gameStarted:boolean){
+      this._gameStarted = gameStarted;
+    }
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -7,12 +7,33 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import GameManager from "../../Utitlity/GameManager";
-
+import {MatButton} from "@angular/material/button";
+import {MatDrawer, MatDrawerContainer, MatDrawerContent} from "@angular/material/sidenav";
+import {MatIcon} from "@angular/material/icon";
+import {MatListItem, MatNavList} from "@angular/material/list";
+import {BetpageComponent} from "../betpage/betpage.component";
 
 @Component({
   selector: '[app-header]:not(p)',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FormsModule, MatMenu, MatMenuTrigger, MatMenuItem],
+    imports: [HttpClientModule,
+      CommonModule,
+      RouterOutlet,
+      RouterLink,
+      RouterLinkActive,
+      FormsModule,
+      MatMenu,
+      MatMenuTrigger,
+      MatMenuItem,
+      MatButton,
+      MatDrawer,
+      MatDrawerContainer,
+      MatIcon,
+      MatListItem,
+      MatNavList,
+      MatDrawerContent,
+      BetpageComponent
+    ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
   encapsulation: ViewEncapsulation.ShadowDom
@@ -30,8 +51,6 @@ export class HeaderComponent {
     });
     return this.myHttpclient.get<User>('http://localhost:8080/Pferderennen/Game/ActiveUsers', { headers });
   }
-
-
 
   profileClicked():void{
       this.fetchActiveUsers().subscribe(

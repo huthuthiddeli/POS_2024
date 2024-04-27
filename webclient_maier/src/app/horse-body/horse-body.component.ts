@@ -4,11 +4,25 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import GameManager from "../../Utitlity/GameManager";
 import {Router, RouterLink} from "@angular/router";
 import {RedirectCodes} from "../../Lib/Redirect";
+import {MatDrawer, MatDrawerContainer, MatSidenavContainer} from "@angular/material/sidenav";
+import {MatListItem, MatNavList} from "@angular/material/list";
+import {MatButton} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: '[app-horse-body]',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterLink],
+  imports: [CommonModule,
+    HttpClientModule,
+    RouterLink,
+    MatSidenavContainer,
+    MatDrawerContainer,
+    MatDrawer,
+    MatNavList,
+    MatListItem,
+    MatButton,
+    MatIcon,
+  ],
   templateUrl: './horse-body.component.html',
   styleUrl: './horse-body.component.css',
   encapsulation: ViewEncapsulation.ShadowDom
