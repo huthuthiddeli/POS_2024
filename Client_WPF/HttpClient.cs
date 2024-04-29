@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
+using System.Security.Policy;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -77,20 +78,17 @@ namespace Client_WPF
             return null;
         }
 
-        public async Task<string> PlaceBet(string betValue, string better, string horseName)
+        public async Task<string> PlaceBet(float betValue, string better, string horseName)
         {
             try
             {
-                Dictionary<string, string> data = new Dictionary<string, string>()
-                {
-                    {"better", better},
-                    {"betValue", betValue.ToString() },
-                    {"horseName", horseName}
-                };
 
-                HttpContent item = new FormUrlEncodedContent(data);
+                string jsonObj = JsonSerializer.Serialize(new { betValue, better, horseName});
 
-                HttpResponseMessage response = await _httpClient.PostAsync("Pferderennen/Game/Bet", item);
+                var content = new StringContent(jsonObj, Encoding.UTF8, "application/json");
+
+
+                HttpResponseMessage response = await _httpClient.PostAsync("Pferderennen/Game/Bet", content);
 
                 if (response.IsSuccessStatusCode)
                 {

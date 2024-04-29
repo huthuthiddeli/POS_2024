@@ -89,7 +89,7 @@ namespace Client_WPF
         {
             if(horseName.Content.ToString()?.Length > 0 && ammount.Text.Length > 0)
             {
-                string newContent = await client.PlaceBet(ammount.Text.ToString(), MainWindow.user.Username, horseName.Content.ToString());
+                string newContent = await client.PlaceBet(float.Parse(ammount.Text.ToString()), MainWindow.user.Username, horseName.Content.ToString());
                 MessageBox.Show(MainWindow.user.Username);
 
                 if(newContent == "There was no such horse like this")

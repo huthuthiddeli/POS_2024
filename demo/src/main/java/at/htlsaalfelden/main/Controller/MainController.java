@@ -1,6 +1,7 @@
 package at.htlsaalfelden.main.Controller;
 
 import at.htlsaalfelden.main.Horserace.BetLocation;
+import at.htlsaalfelden.main.dtos.BetDTO;
 import at.htlsaalfelden.main.dtos.UserDTO;
 import at.htlsaalfelden.main.models.UserEntity;
 import at.htlsaalfelden.main.services.UserService;
@@ -59,12 +60,13 @@ public class MainController {
 
     @PostMapping("/Game/Bet")
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody String placeBet(@RequestParam String better, @RequestParam float betValue, @RequestParam String horseName) throws JsonProcessingException {
+    public @ResponseBody String placeBet(@RequestBody BetDTO dto) throws JsonProcessingException {
+
         if(location == null){
             return "Game has not been initialized";
         }
 
-        return location.placeBet(betValue, horseName, better);
+        return location.placeBet(dto.betValue(), dto.horseName(), dto.better());
     }
 
     @GetMapping("/Game/ActiveUsers")

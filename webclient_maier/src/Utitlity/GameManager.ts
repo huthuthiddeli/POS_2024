@@ -11,10 +11,6 @@ export default class GameManager {
   }
 
   public set user(newUser: User){
-
-    console.log(newUser instanceof User);
-    console.log(typeof(newUser) === 'object');
-
     this._user = newUser;
   }
 
@@ -27,10 +23,6 @@ export default class GameManager {
   }
 
   public get gamelocation(): BetLocation{
-    if(!this._gamelocation){
-      console.log("Betlocation is null in: Gamemanager line 27")
-    }
-
     return this._gamelocation!;
   }
 

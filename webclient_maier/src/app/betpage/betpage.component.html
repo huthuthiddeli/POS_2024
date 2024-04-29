@@ -10,8 +10,8 @@
   </div>
 
     <div class="bg-gray-100 flex justify-center items-center">
-    <div class="w-96 p-8 bg-white rounded-lg shadow-lg">
-      <h2 class="text-xl font-bold mb-4">Place your bet!</h2>
+    <div class="p-8 bg-white rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Place your bet on horse {{selHorse!.name}}</h2>
       <div class="grid grid-cols-2 gap-4">
         <div class="col-span-2">
           <ul class="bets m-5">
@@ -25,7 +25,7 @@
           <input [(ngModel)]="data" type="number" id="number" name="number" class="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" placeholder="{{maxBetValue}}">
         </div>
         <div class="col-span-1 flex items-end">
-          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" (click)="test2()">Submit</button>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" (click)="test2(selHorse)">Submit</button>
         </div>
       </div>
     </div>
