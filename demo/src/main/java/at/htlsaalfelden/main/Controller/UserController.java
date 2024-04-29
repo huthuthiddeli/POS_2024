@@ -43,7 +43,7 @@ public class UserController {
             }
         }
 
-        return userService.save(new UserDTO(u.username(), 1000, u.passwordHashed()));
+        return userService.save(new UserDTO(u._username(), 1000, u._passwordHashed()));
     }
 
     @PostMapping("/Login")

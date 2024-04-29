@@ -1,6 +1,6 @@
 <div class="grid grid-rows-4 grid-cols-2 gap-4">
 
-  <div #horsenames class="row-starter-1 column-starter-1 border border-solid border border-black h-full w-full bg-amber-200 p-3">
+  <div #horsenames class="row-starter-1 column-starter-1 border border-solid border border-black w-full bg-amber-200 p-3">
     <h1 class="flex justify-self-center">Avaliable Horses!</h1>
     <ul class="horses m-5">
         <li *ngFor="let horse of horses" class="flex justify-center">
@@ -9,28 +9,26 @@
     </ul>
   </div>
 
-  <div class="row-starter-1 columns-starter-2 row-span-4 border border-solid border-black m-2">
-
-    <div class="grid grid-rows-subgrid grid-cols-subgrid gap-4 content-center">
-
-      <h1 class="row-starter-1 columns-starter-2 text-2xl flex justify-self-center">Votepannel!</h1>
-
-      <div #items class="grid-rows-2 grid-cols-2 text-2xl flex justify-self-center">
-        <ul class="bets m-5">
-          <li *ngFor="let bets of Object.entries(betList)">
-            <h1 class="m-2 p-5 text-2xl border border-solid border-black" >{{bets[0] + "hello "  + bets[1]}}</h1>
-          </li>
-        </ul>
-
-        <input type="number" class="row-starter-3 columns-starter-2 flex justify-self-end border border-solid border-black p-5"/>
-        <input type="button" class="row-starter-4 columns-starter-1 flex justify-self-center border border-solid border-black p-5"/>
-
+    <div class="bg-gray-100 flex justify-center items-center">
+    <div class="w-96 p-8 bg-white rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Place your bet!</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-2">
+          <ul class="bets m-5">
+            <li *ngFor="let bets of Object.entries(betList)">
+              <h1 class="m-2 p-5 text-2xl border border-solid border-black" >{{bets[0]}}  {{bets[1]}}</h1>
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-1">
+          <label for="number" class="block mb-2">Number:</label>
+          <input [(ngModel)]="data" type="number" id="number" name="number" class="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" placeholder="{{maxBetValue}}">
+        </div>
+        <div class="col-span-1 flex items-end">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" (click)="test2()">Submit</button>
+        </div>
       </div>
     </div>
-
-
-
-  </div>
-
+    </div>
 
 </div>

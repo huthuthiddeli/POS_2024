@@ -10,33 +10,33 @@ namespace Client_WPF
 {
     public class User
     {
-        public string username;
-        private int money;
+        private string _username;
+        private int _money;
         private string password;
-        private string hashedPassword;
+        private string _hashedPassword;
 
         public User() {}
 
         public User(string username, string password, int money) 
         { 
-            this.username = username;
-            this.money = money;
+            this._username = username;
+            this._money = money;
             this.password = password;
-            this.hashedPassword = EncryptionHelper.HashPassword(password);
+            this._hashedPassword = EncryptionHelper.HashPassword(password);
         }
 
-        [JsonPropertyName("username")]
+        [JsonPropertyName("_username")]
         public string Username
         {
-            get { return username; }
-            set { username = value; }
+            get { return _username; }
+            set { _username = value; }
         }
 
-        [JsonPropertyName("money")]
+        [JsonPropertyName("_money")]
         public int Money
         {
-            get { return this.money; }
-            set { this.money = value; }
+            get { return this._money; }
+            set { this._money = value; }
         }
 
         [JsonPropertyName("password")]
@@ -46,21 +46,21 @@ namespace Client_WPF
             set { password = value; }
         }
 
-        [JsonPropertyName("passwordHashed")]
+        [JsonPropertyName("_passwordHashed")]
         public string HashedPassword
         {
-            get { return this.hashedPassword; }
-            set {  this.hashedPassword = value; }
+            get { return this._hashedPassword; }
+            set {  this._hashedPassword = value; }
         }
 
         public bool VerifyPassword()
         {
-            return EncryptionHelper.VerifyPassword(this.password, this.hashedPassword);
+            return EncryptionHelper.VerifyPassword(this.password, this._hashedPassword);
         }
 
         public override string ToString()
         {
-            return $"Username: {this.username} money: {this.money} password: {this.password} hashpassword: {this.hashedPassword}";
+            return $"Username: {this._username} money: {this._money} password: {this.password} hashpassword: {this._hashedPassword}";
         }
 
     }

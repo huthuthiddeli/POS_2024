@@ -32,10 +32,8 @@ export class HorseBodyComponent {
   constructor(private router: Router){}
 
   ngOnInit(): void{
-    console.log("User state in Gamemanager: " + GameManager.GetInstance().GetUser());
-
     //Redirect to Login page if not logged in and Gamelocation is null
-    if(GameManager.GetInstance().GetUser() == undefined && GameManager.GetInstance().GetGameLocation() == undefined){
+    if(GameManager.GetInstance().user == undefined && GameManager.GetInstance().gamelocation == undefined){
       this.router.navigate(['login'], {queryParams: {"redirectcode": RedirectCodes["Login failed"]}});
     }
   }

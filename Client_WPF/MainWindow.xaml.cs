@@ -67,7 +67,7 @@ namespace Client_WPF
 
             distanceLabel.Content = "Tracklength: " + gameManager.TrackLength;
 
-            userNameLabel.Content = "Username: " + user.username;
+            userNameLabel.Content = "Username: " + user.Username;
 
 
             FirstHorseName.Content = gameManager.Horses[0].Name;

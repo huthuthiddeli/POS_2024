@@ -67,5 +67,8 @@ export default class BetLocation{
       this._gameStarted = gameStarted;
     }
 
+    public toString(): void{
+      console.log("location: " + this.location + " horsesize: " + this.horses.length + " gamefinsihed: " + this.gameFinished + " gameStarted: " + this.gameStarted + " winner: " + this.winner);
+}
 
 }

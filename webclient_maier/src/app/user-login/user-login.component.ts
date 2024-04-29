@@ -57,13 +57,34 @@ export class UserLoginComponent {
       let json: string = JSON.stringify(obj);
 
       this.myHttpclient.post<User>('http://localhost:8080/User/Login', json, {headers}).subscribe(
-        async(response) => {
-          GameManager.GetInstance().SetUser(response);
-          json = JSON.stringify(GameManager.GetInstance().GetUser());
+        async(response: User) => {
+
+          if(response == undefined){
+            console.log("Didn't receive User object!")
+            return;
+          }
+
+          let actualUser: User = new User(response['_username'], response['_money'], response['_passwordHashed']);
+
+          GameManager.GetInstance().user = actualUser;
+
+          console.log(GameManager.GetInstance().user.printDetails());
+
+          json = JSON.stringify(GameManager.GetInstance().user);
 
           this.myHttpclient.post<BetLocation>('http://localhost:8080/Pferderennen/Game/innit', json, {headers}).subscribe(
             async (responeBetlocation: BetLocation) => {
-              GameManager.GetInstance().SetGameLocation(responeBetlocation);
+
+              let actualObject: BetLocation = new BetLocation(
+                responeBetlocation.location,
+                responeBetlocation.horses,
+                responeBetlocation.trackLength,
+                responeBetlocation.gameFinished,
+                responeBetlocation.winner,
+                responeBetlocation.gameStarted
+              );
+
+              GameManager.GetInstance().gamelocation = actualObject;
               await this.router.navigate(['/'])
             }
           )

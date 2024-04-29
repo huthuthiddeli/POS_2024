@@ -55,7 +55,7 @@ namespace Client_WPF
 
                     if(u != null)
                     {
-                        usernameLabel.Content = "Username: " + u.username;
+                        usernameLabel.Content = "Username: " + u.Username;
                         moneyLabel.Content = "Password: " + u.Money;
                     }
 

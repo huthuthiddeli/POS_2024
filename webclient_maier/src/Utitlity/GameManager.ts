@@ -4,31 +4,34 @@ import User from "./User";
 
 export default class GameManager {
   private static INSTANCE: GameManager;
-  private gamelocation: BetLocation | undefined;
-  private user: User | undefined;
+  private _gamelocation: BetLocation | undefined;
+  private _user: User | undefined;
 
-  private constructor(){}
-
-
-
-  public SetUser(user: User){
-    this.user = user;
+  private constructor(){
   }
 
-  public GetUser(): User | undefined{
-    return this.user;
+  public set user(newUser: User){
+
+    console.log(newUser instanceof User);
+    console.log(typeof(newUser) === 'object');
+
+    this._user = newUser;
   }
 
-  public SetGameLocation(gameLocation: BetLocation){
-    this.gamelocation = gameLocation;
+  public get user(): User{
+    return this._user!;
   }
 
-  public GetGameLocation(): BetLocation | undefined{
-    if(this.gamelocation == undefined){
-      return undefined;
+  public set gamelocation(location: BetLocation){
+    this._gamelocation = location;
+  }
+
+  public get gamelocation(): BetLocation{
+    if(!this._gamelocation){
+      console.log("Betlocation is null in: Gamemanager line 27")
     }
 
-    return this.gamelocation;
+    return this._gamelocation!;
   }
 
   public static GetInstance(): GameManager{

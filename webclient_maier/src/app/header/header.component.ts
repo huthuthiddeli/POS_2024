@@ -62,6 +62,6 @@ export class HeaderComponent {
           alert('Error fetching active users. Please try again later.');
         }
       );
-      console.log(GameManager.GetInstance().GetUser());
+      console.log(GameManager.GetInstance().user);
     }
 }

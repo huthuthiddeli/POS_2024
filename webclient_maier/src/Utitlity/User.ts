@@ -1,46 +1,42 @@
-import {PasswordHasher} from "../Lib/PasswordHasher";
-
 export default class User{
-    private username : string;
-    private money : number;
-    private passwordHashed : string;
 
+  private _username : string;
+  private _money : number;
+  private _passwordHashed : string;
 
-    public constructor(name : string, money : number, passwordHashed : string ){
-        this.username = name;
-        this.money = money;
-        this.passwordHashed = passwordHashed;
-    }
+  public constructor(_username : string, _money : number, _passwordHahsed : string ){
+    this._username = _username;
+    this._money = _money;
+    this._passwordHashed = _passwordHahsed;
+  }
 
+  // Method to print person's details
+  printDetails(): string {
+    return (`Name: ${this._username}, Money: ${this._money}, HashedPassword: ${this._passwordHashed}`);
+  }
 
-       // Getter methods
-    getUsername(): string {
-        return this.username;
-    }
+  get username(): string {
+    return this._username;
+  }
 
-    getPasswordHashed(): string {
-        return this.passwordHashed;
-    }
+  set username(username: string) {
+    this._username = username;
+  }
 
-    getMoney(): number {
-        return this.money;
-    }
+  public get money(): number {
+    return this._money;
+  }
 
-    // Setter methods
-    setName(name: string): void {
-        this.username = name;
-    }
+  set money(money: number) {
+    this._money = money;
+  }
 
-    setPasswordHashed(passwordHashed: string): void {
-        this.passwordHashed = passwordHashed;
-    }
+  get passwordHashed(): string {
+    return this._passwordHashed;
+  }
 
-    setMoney(money: number): void {
-        this.money = money;
-    }
+  set passwordHashed(passwordHashed: string) {
+    this._passwordHashed = passwordHashed;
+  }
 
-    // Method to print person's details
-    printDetails(): string {
-        return (`Name: ${this.username}, Money: ${this.money}, HashedPassword: ${this.passwordHashed}`);
-    }
 }

@@ -111,13 +111,13 @@ namespace Client_WPF
         }
 
 
-        public async Task<User?> Login(string username, string password)
+        public async Task<User?> Login(string _username, string _password)
         {
-            string passwordHashed = EncryptionHelper.HashPassword(password);
+            string _passwordHashed = EncryptionHelper.HashPassword(_password);
 
             int money = 0;
 
-            string jsonObj = JsonSerializer.Serialize(new { username, money, passwordHashed });
+            string jsonObj = JsonSerializer.Serialize(new { _username, money, _passwordHashed });
 
             var content = new StringContent(jsonObj, Encoding.UTF8, "application/json");
 

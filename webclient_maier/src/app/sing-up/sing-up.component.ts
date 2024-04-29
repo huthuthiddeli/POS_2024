@@ -41,7 +41,7 @@ export class SingUpComponent {
         console.log(response);
 
         if(response != null){
-          GameManager.GetInstance().SetUser(response);
+          GameManager.GetInstance().user = response;
           this.router.navigate(['/']);
         }
       }

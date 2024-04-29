@@ -38,7 +38,7 @@ public class MainController {
         try {
             //TODO: REFACTOR ENTITY SYSTEM IMPORTANT
 
-            if(entity.username() != null){
+            if(entity._username() != null){
                 LOGGER.info("[MAINCONTROLLER]\t\t"+mapper.writeValueAsString(entity));
                 location.addToActiveUserList(entity);
             }
