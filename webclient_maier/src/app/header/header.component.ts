@@ -3,7 +3,7 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import User from '../../Utitlity/User';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import GameManager from "../../Utitlity/GameManager";
@@ -12,6 +12,8 @@ import {MatDrawer, MatDrawerContainer, MatDrawerContent} from "@angular/material
 import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {BetpageComponent} from "../betpage/betpage.component";
+import {MyhttpclientService} from "../myhttpclient.service";
+import {LoggerService} from "../logger.service";
 
 @Component({
   selector: '[app-header]:not(p)',
@@ -40,8 +42,15 @@ import {BetpageComponent} from "../betpage/betpage.component";
 })
 
 export class HeaderComponent {
+  protected title: string;
 
-  constructor(private myHttpclient: HttpClient){}
+
+  constructor(private myHttpclient: HttpClient,
+              private client: MyhttpclientService,
+              private logger: LoggerService,
+              private router: Router) {
+    this.title = "Pferderennen";
+  }
 
   fetchActiveUsers(): Observable<User> {
 
@@ -64,4 +73,13 @@ export class HeaderComponent {
       );
       console.log(GameManager.GetInstance().user);
     }
+
+
+  iterate(): void{
+    this.client.iterate();
+
+    this.router.navigate(['/']);
+
+    this.logger.log("reloaded!");
+  }
 }

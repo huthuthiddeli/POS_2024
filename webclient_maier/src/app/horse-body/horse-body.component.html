@@ -1,12 +1,37 @@
+<div class="grid grid-rows-10 grid-cols-3 gap-4 border border-solid border-blue-400 bg-gray-200">
+  <div class="col-span-3 border border-black border-solid flex justify-between p-5">
 
+    <h1 class="border border-black border-solid p-5">Show Users</h1>
 
+    <h1 class="border border-black border-solid p-5"> Location: {{GameManager.GetInstance().gamelocation!.location!}}</h1>
 
-  <div class="grid grid-rows-5 grid-cols gap-4 border border-solid border-blue-400 content-center content-start bg-gray-200">
-      <!--Displaying Horses-->
-      <div #firsthorse class="row-start-1 columns-starter-1 flex justify-self-center border border-solid border-black p-5">1</div>
-      <div #secondhorse class="row-start-2 columns-starter-1 flex justify-self-center border border-solid border-black p-5">2</div>
-      <div #thirdhorse class="row-start-3 columns-starter-1 flex justify-self-center border border-solid border-black p-5">3</div>
-      <div #fourthhorse class="row-start-4 columns-starter-1 flex justify-self-center border border-solid border-black p-5" >4</div>
-      <div #fivthhorse class="row-start-5 columns-starter-1 flex justify-self-center border border-solid border-black p-5">5</div>
+    <h1 class="border border-black border-solid p-5"> TrackLength: {{ GameManager.GetInstance().gamelocation!.trackLength.toFixed(2) }}</h1>
   </div>
 
+
+  <!-- https://codepen.io/pierrinho/pen/VVGezJ -->
+
+  <div #firsthorse class="row-start-2 columns-starter-1 col-span-3 flex justify-self-center border border-solid border-black p-5 w-9/12">
+    <div>
+      <h1>{{GameManager.GetInstance().gamelocation!.horses[0].name}}</h1>
+      <mat-progress-bar mode="determinate" value="{{horseOneValue}}"></mat-progress-bar>
+    </div>
+
+  </div>
+
+  <div #secondhorse class="row-start-3 columns-starter-1 col-span-3 flex justify-self-center border border-solid border-black p-5 w-9/12">
+    {{GameManager.GetInstance().gamelocation!.horses[1].name}}
+  </div>
+
+  <div #thirdhorse class="row-start-4 columns-starter-1 col-span-3 flex justify-self-center border border-solid border-black p-5 w-9/12">
+    {{GameManager.GetInstance().gamelocation!.horses[2].name}}
+  </div>
+
+  <div #fourthhorse class="row-start-5 columns-starter-1 col-span-3 flex justify-self-center border border-solid border-black p-5 w-9/12">
+    {{GameManager.GetInstance().gamelocation!.horses[3].name}}
+  </div>
+
+  <div #fivthhorse class="row-start-6 columns-starter-1 col-span-3 flex justify-self-center border border-solid border-black p-5 w-9/12">
+    {{GameManager.GetInstance().gamelocation!.horses[4].name}}
+  </div>
+</div>

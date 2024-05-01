@@ -4,8 +4,6 @@ import Horse from "../Utitlity/Horse";
 import GameManager from "../Utitlity/GameManager";
 import {LoggerService} from "./logger.service";
 import BetLocation from "../Utitlity/BetLocation";
-import {response} from "express";
-import {RequestParameter} from "@angular/cli/src/analytics/analytics-parameters";
 
 @Injectable({
   providedIn: 'root'
@@ -56,15 +54,32 @@ export class MyhttpclientService {
             );
 
           GameManager.GetInstance().gamelocation = actualBetLocation;
-          console.log("Bet has placed bet!");
+          this.logger.log("Bet has placed bet!");
         }
     );
-
-
-
-
   }
 
+  iterate(): void{
 
+    const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
 
+    this.client.get<BetLocation>('http://localhost:8080/Pferderennen/Game/iterate', {headers}).subscribe( async (responeBetlocation) => {
+
+      let actualObject: BetLocation = new BetLocation(
+        responeBetlocation.location,
+        responeBetlocation.horses,
+        responeBetlocation.trackLength,
+        responeBetlocation.gameFinished,
+        responeBetlocation.winner,
+        responeBetlocation.gameStarted
+      );
+
+      GameManager.GetInstance().gamelocation = actualObject;
+      this.logger.log("Iteration has been completed!");
+      }
+    )
+  }
 }

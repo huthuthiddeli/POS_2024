@@ -3,7 +3,9 @@
 
     <span (click)="matDrawer.toggle()" class="material-icons row-start-1 columns-start-1 text-2xl content-right size-5 scale-150 flex justify-self-start mb-4 ml-5 cursor-default">menu</span>
 
-    <div class="row-start-1 columns-start-2 content-center border border-r-2 border-solid border-blue-500 border-2">Pferderennen</div>
+    <div class="row-start-1 columns-start-2 content-center border border-r-2 border-solid border-blue-500 border-2">
+      {{title}}
+    </div>
 
     <img class="columns-start-3 row-start-1 scale-150 m-5 border border-solid border-blue-500 border-2 justify-self-end" src="../../assets/icons/raceicon.jpg" alt="Logo" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
 
@@ -29,7 +31,7 @@
         </mat-menu>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button (click)="matDrawer.toggle()"><mat-icon>play_arrow</mat-icon> Start Race</button>
+        <button mat-button (click)="matDrawer.toggle(); iterate()" ><mat-icon>play_arrow</mat-icon> Start Race</button>
 
 
       </mat-list-item>

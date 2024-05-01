@@ -75,13 +75,6 @@ export class BetpageComponent {
       console.log(this.selHorse.name)
 
       this.betList = this.selHorse.bets;
-
-      /*
-      Object.entries(this.selHorse.bets).forEach(([key, value]) => {
-          console.log(key + "    " + value);
-      });
-      */
-
     }
 
   }
