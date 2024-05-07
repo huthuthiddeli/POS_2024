@@ -51,10 +51,15 @@ public class UserController {
     public @ResponseBody UserDTO logginAccount(@RequestBody UserDTO userDTO) throws JsonProcessingException {
         List<UserDTO> users = userService.findAll();
 
-        for(UserDTO existingUser : users){
-            if(userDTO.toUserEntity().equals(existingUser.toUserEntity())){
-                return existingUser;
+        try{
+
+            for(UserDTO existingUser : users){
+                if(userDTO.toUserEntity().equals(existingUser.toUserEntity())){
+                    return existingUser;
+                }
             }
+        }catch (Exception ex){
+            LOGGER.error("ERROR: " + ex.getMessage());
         }
 
         return null;

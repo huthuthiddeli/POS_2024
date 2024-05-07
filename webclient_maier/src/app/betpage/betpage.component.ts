@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForOf} from "@angular/common";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import GameManager from "../../Utitlity/GameManager";
-import BetLocation from "../../Utitlity/BetLocation";
 import Horse from "../../Utitlity/Horse";
-import User from "../../Utitlity/User";
 import {FormsModule} from "@angular/forms";
 import {LoggerService} from "../logger.service";
 import {MyhttpclientService} from "../myhttpclient.service";
 import {Router} from "@angular/router";
+import {RedirectCodes} from "../../Lib/Redirect";
 
 @Component({
   selector: 'app-betpage',
@@ -23,15 +21,14 @@ import {Router} from "@angular/router";
 })
 export class BetpageComponent {
   horses: Horse[];
-  betLocation: BetLocation  | undefined;
   betList: Record<string, number>;
   protected readonly Object = Object;
   maxBetValue: number;
   protected data: any;
   protected selHorse: Horse;
+  protected submitStatus = false;
 
-
-  constructor(private myHttpclient: HttpClient, private logger: LoggerService, private myHttpClient2: MyhttpclientService, private router: Router) {
+  constructor(private logger: LoggerService, private client: MyhttpclientService, private router: Router) {
     this.horses = []
     this.betList = {}
     this.maxBetValue = 0;
@@ -39,60 +36,59 @@ export class BetpageComponent {
   }
 
   ngOnInit() {
-    this.betLocation = GameManager.GetInstance().gamelocation;
 
-    if(GameManager.GetInstance().user == undefined){
-
-      console.log("user undefined");
-      return;
-    }else{
-      console.log(GameManager.GetInstance().user.printDetails());
+    if(GameManager.GetInstance().user == undefined && GameManager.GetInstance().gamelocation == undefined){
+      this.router.navigate(['login'], {queryParams: {"redirectcode": RedirectCodes["Login failed"]}});
     }
 
-    let user:User = GameManager.GetInstance().user;
-
-    if(user.money == undefined){
-      return;
+    if(GameManager.GetInstance().gamelocation.gameStarted){
+      this.submitStatus = true;
     }
 
+    this.maxBetValue = GameManager.GetInstance().user.money;
 
-    this.maxBetValue = user.money;
-
-    this.betLocation?.horses.map(value => {this.horses.push(value);})
-
+    this.horses = GameManager.GetInstance().gamelocation.horses;
   }
 
 
-  test(horse: Horse){
+  async findHorse(horse: Horse){
 
     // @ts-ignore
-    this.selHorse = this.betLocation.horses.find(hor => hor == horse);
-
-    this.logger.log("new bets:");
-    this.logger.log(this.selHorse.bets);
+    this.selHorse = GameManager.GetInstance().gamelocation.horses.find(hor => hor.name == horse.name);
 
     if(this.selHorse != undefined){
       console.log(this.selHorse.name)
-
       this.betList = this.selHorse.bets;
     }
 
+    this.logger.log("new bets:");
+    this.logger.log(this.selHorse.bets);
   }
 
-  test2(selectedHorse: Horse){
-    if(selectedHorse.name == undefined){
+  async placeBet(selectedHorse: Horse){
+
+    console.log(selectedHorse)
+    if(selectedHorse === null || selectedHorse === undefined){
       console.log("No horse was selected!");
       return;
     }
 
-    this.myHttpClient2.blacePet(selectedHorse, this.maxBetValue);
+    let betLocation = await this.client.blacePet(selectedHorse, this.maxBetValue);
 
-    this.test(selectedHorse);
+    if(betLocation == null){
+      this.logger.error("Couldn't receive betlocation!");
+      return;
+    }
 
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/betpage']);
-    });
+    await this.findHorse(selectedHorse);
 
+    this.horses = [];
+    GameManager.GetInstance().gamelocation.horses.map(horse => {this.horses.push(horse);})
+
+    alert('Bet has been placed on: ' + selectedHorse.name);
+
+    await this.router.navigate(['/'])
   }
 
+  protected readonly GameManager = GameManager;
 }

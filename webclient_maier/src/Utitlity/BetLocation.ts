@@ -19,6 +19,15 @@ export default class BetLocation{
         this._gameStarted = gameStarted;
     }
 
+    public async GetWinner(): Promise<void>{
+
+      //innit Dict
+      //let winners : {} = new {};
+
+    }
+
+
+
     public get location():string{
       return this._location;
     }

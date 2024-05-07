@@ -1,17 +1,24 @@
 <div class="grid grid-rows-4 grid-cols-2 gap-4">
 
-  <div #horsenames class="row-starter-1 column-starter-1 border border-solid border border-black w-full bg-amber-200 p-3">
-    <h1 class="flex justify-self-center">Avaliable Horses!</h1>
+  <div #horsenames class="row-starter-1 column-starter-1 w-full bg-amber-200 p-3">
+    <h1 class="flex basis-1 justify-self-center">Avaliable Horses!</h1>
     <ul class="horses m-5">
+      <div class="flex justify-center">
+        <h1 class="flex basis-1/3 justify-self-center text-2xl p-5 m-2">Name</h1>
+        <h1 class="flex basis-1/3 justify-self-center text-2xl p-5 m-2">Speed</h1>
+        <h1 class="flex basis-1/3 justify-self-center text-2xl p-5 m-2">Distance Traveled</h1>
+      </div>
         <li *ngFor="let horse of horses" class="flex justify-center">
-          <h1 class="flex justify-self-center p-5 border border-solid border-black bg-green-600 m-2" (click)="test(horse)">{{horse.name}} {{horse.speed}} {{horse.runDistance}}</h1>
+          <h1 class="flex basis-1/3 justify-self-center p-5 m-2" (click)="findHorse(horse)">{{horse!.name}}</h1>
+          <h1 class="flex basis-1/3 justify-self-center p-5 m-2" (click)="findHorse(horse)">{{horse!.speed}}km/h</h1>
+          <h1 class="flex basis-1/3 justify-self-center p-5 m-2" (click)="findHorse(horse)">{{horse!.runDistance}}m</h1>
         </li>
     </ul>
   </div>
 
     <div class="bg-gray-100 flex justify-center items-center">
     <div class="p-8 bg-white rounded-lg shadow-lg">
-      <h2 class="text-xl font-bold mb-4">Place your bet on horse {{selHorse!.name}}</h2>
+      <h2  class="text-xl font-bold mb-4">Place your bet on horse {{selHorse!.name}}</h2>
       <div class="grid grid-cols-2 gap-4">
         <div class="col-span-2">
           <ul class="bets m-5">
@@ -22,13 +29,13 @@
         </div>
         <div class="col-span-1">
           <label for="number" class="block mb-2">Number:</label>
-          <input [(ngModel)]="data" type="number" id="number" name="number" class="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" placeholder="{{maxBetValue}}">
+          <input type="number" id="number" name="number" class="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" placeholder="{{maxBetValue}}">
         </div>
         <div class="col-span-1 flex items-end">
-          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" (click)="test2(selHorse)">Submit</button>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                  (click)="placeBet(selHorse)" [disabled]="submitStatus">Submit</button>
         </div>
       </div>
     </div>
     </div>
-
 </div>

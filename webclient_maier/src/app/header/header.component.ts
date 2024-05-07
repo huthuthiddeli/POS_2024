@@ -14,6 +14,8 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 import {BetpageComponent} from "../betpage/betpage.component";
 import {MyhttpclientService} from "../myhttpclient.service";
 import {LoggerService} from "../logger.service";
+import BetLocation from "../../Utitlity/BetLocation";
+import Horse from "../../Utitlity/Horse";
 
 @Component({
   selector: '[app-header]:not(p)',
@@ -61,25 +63,44 @@ export class HeaderComponent {
     return this.myHttpclient.get<User>('http://localhost:8080/Pferderennen/Game/ActiveUsers', { headers });
   }
 
-  profileClicked():void{
-      this.fetchActiveUsers().subscribe(
-        (users: User) => {
-          alert('Active users: ' + JSON.stringify(users));
-        },
-        (error: any) => {
-          console.error('Error fetching active users:', error);
-          alert('Error fetching active users. Please try again later.');
-        }
-      );
-      console.log(GameManager.GetInstance().user);
+  async iterate(): Promise<void>{
+    const betLocation: BetLocation|null = await this.client.iterate();
+
+    if(betLocation == null){
+      console.error("Betlocation couldn't have been found!");
+      return;
     }
 
+    let lastWinner: Horse | undefined = undefined;
 
-  iterate(): void{
-    this.client.iterate();
+    for(let i = 0; i < betLocation.horses.length; i++){
 
-    this.router.navigate(['/']);
+      if(betLocation.horses[i].runDistance >= betLocation.trackLength){
+        if(lastWinner !== undefined){
+          if(betLocation.horses[i].runDistance > (lastWinner as Horse).runDistance){
+            lastWinner = betLocation.horses[i];
+          }
+        }else{
+          lastWinner = betLocation.horses[i];
+        }
 
+      }
+    }
+
+    if(lastWinner !== undefined){
+      alert("Winner has been selected: " + lastWinner.name);
+      GameManager.GetInstance().gamelocation.winner = lastWinner;
+      await this.router.navigate(['/winner']);
+      lastWinner = undefined;
+
+      //const betLocation = this.client
+
+      return;
+    }
+
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
     this.logger.log("reloaded!");
   }
 }

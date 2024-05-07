@@ -31,7 +31,7 @@ import {MatProgressBar} from "@angular/material/progress-bar";
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HorseBodyComponent {
-  protected horseOneValue: number = 0;
+  protected horseValues: number[] = [];
 
   constructor(private router: Router){}
 
@@ -39,21 +39,42 @@ export class HorseBodyComponent {
     //Redirect to Login page if not logged in and Gamelocation is null
     if(GameManager.GetInstance().user == undefined && GameManager.GetInstance().gamelocation == undefined){
       this.router.navigate(['login'], {queryParams: {"redirectcode": RedirectCodes["Login failed"]}});
-    }
-
-    if(GameManager.GetInstance().gamelocation == undefined){
       return;
     }
+
+    if(GameManager.GetInstance().gamelocation.horses != undefined){
+      this.updateValues();
+    }
+
+  }
+
+
+  public updateValues(): void{
 
     for(let i: number = 0; i < GameManager.GetInstance().gamelocation!.horses.length; i++){
       switch(i){
         case 0:
-          this.horseOneValue = GameManager.GetInstance().gamelocation.horses[i].runDistance / GameManager.GetInstance().gamelocation.trackLength * 100;
-          console.log(this.horseOneValue)
+          this.horseValues[i] = GameManager.GetInstance().gamelocation.horses[i].runDistance / GameManager.GetInstance().gamelocation.trackLength * 100;
+          break;
+
+        case 1:
+          this.horseValues[i] = GameManager.GetInstance().gamelocation.horses[i].runDistance / GameManager.GetInstance().gamelocation.trackLength * 100;
+          break;
+
+        case 2:
+          this.horseValues[i] = GameManager.GetInstance().gamelocation.horses[i].runDistance / GameManager.GetInstance().gamelocation.trackLength * 100;
+          break;
+
+        case 3:
+          this.horseValues[i] = GameManager.GetInstance().gamelocation.horses[i].runDistance / GameManager.GetInstance().gamelocation.trackLength * 100;
+          break;
+
+        case 4:
+          this.horseValues[i] = GameManager.GetInstance().gamelocation.horses[i].runDistance / GameManager.GetInstance().gamelocation.trackLength * 100;
+          break;
       }
     }
   }
-
 
 
 

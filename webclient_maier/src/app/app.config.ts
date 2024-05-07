@@ -7,7 +7,7 @@ import { Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { HorseBodyComponent } from './horse-body/horse-body.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {provideHttpClient} from "@angular/common/http";
+import {provideHttpClient, withFetch} from "@angular/common/http";
 
 
 export const routeArray: Routes = [
@@ -18,5 +18,5 @@ export const routeArray: Routes = [
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideHttpClient()]
+  providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideHttpClient(withFetch()), provideClientHydration(),]
 };

@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Component, ViewEncapsulation} from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import User from "../../Utitlity/User";
-import {PasswordHasher} from "../../Lib/PasswordHasher";
-import {ActivatedRoute, Router} from "@angular/router";
+import { HttpClientModule } from '@angular/common/http';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { MyhttpclientService } from "../myhttpclient.service";
 import GameManager from "../../Utitlity/GameManager";
+import {LoggerService} from "../logger.service";
+import {delay} from "rxjs";
+import User from "../../Utitlity/User";
 import BetLocation from "../../Utitlity/BetLocation";
 
 @Component({
@@ -23,7 +25,10 @@ export class UserLoginComponent {
   protected password: string = '';
   protected textBoxMessage: string = '';
 
-  constructor(private myHttpclient: HttpClient, private router: Router, private activeRoute: ActivatedRoute) {}
+  constructor(private myHttpclient: MyhttpclientService,
+              private router: Router,
+              private activeRoute: ActivatedRoute,
+              private logger: LoggerService,) {}
 
 
     ngOnInit(){
@@ -38,60 +43,58 @@ export class UserLoginComponent {
       })
     }
 
+  async OnLoginClick(): Promise<void> {
+    let curPassword = "testpassword";
+    let curUsername: string = "test";
 
-    async OnLoginClick(): Promise<void> {
 
-      const headers:HttpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
-      });
+    /*
+    this.myHttpclient.log_in(curUsername, curPassword).then((async (successfull: boolean): Promise<boolean> => {
 
-      let passwordHashed: string = "";
-      //PasswordHasher.hashPassword(this.password).then((content) => passwordHashed = content);
+        delay(1000);
 
-      //let obj : User = new User(this.username, 0, passwordHashed);
-      let password = await PasswordHasher.hashPassword("testpassword").then((localPassword) => {return localPassword});
+        if(!successfull){
+          this.logger.error("Could not log in!");
+        }
 
-      let obj: User = new User("test", 0, password);
 
-      let json: string = JSON.stringify(obj);
 
-      this.myHttpclient.post<User>('http://localhost:8080/User/Login', json, {headers}).subscribe(
-        async(response: User) => {
+        this.myHttpclient.init().then(async (successfull: boolean): Promise<boolean> => {
 
-          if(response == undefined){
-            console.log("Didn't receive User object!")
-            return;
+          if(!successfull){
+            this.logger.error("could not init()!");
+            return false;
           }
 
-          let actualUser: User = new User(response['_username'], response['_money'], response['_passwordHashed']);
-
-          GameManager.GetInstance().user = actualUser;
-
-          console.log(GameManager.GetInstance().user.printDetails());
-
-          json = JSON.stringify(GameManager.GetInstance().user);
-
-          this.myHttpclient.post<BetLocation>('http://localhost:8080/Pferderennen/Game/innit', json, {headers}).subscribe(
-            async (responeBetlocation: BetLocation) => {
-
-              let actualObject: BetLocation = new BetLocation(
-                responeBetlocation.location,
-                responeBetlocation.horses,
-                responeBetlocation.trackLength,
-                responeBetlocation.gameFinished,
-                responeBetlocation.winner,
-                responeBetlocation.gameStarted
-              );
-
-              GameManager.GetInstance().gamelocation = actualObject;
-              await this.router.navigate(['/'])
-            }
-          )
-        }
-      );
+          await this.router.navigate(['/']);
 
 
+          return true;
+        })
 
+        return true;
+      })
+    );
+     */
+
+
+    let user: User|null = await this.myHttpclient.login(curUsername, curPassword);
+
+    if(user == null){
+      this.logger.error("User couldn't been resolved!");
+      return;
     }
+
+
+    let gameState: BetLocation|null = await this.myHttpclient.init();
+
+    if(gameState == null){
+      this.logger.error("BetLocation couldn't been resolved!");
+      return;
+    }
+
+
+    await this.router.navigate(["/"]);
+  }
+
 }
