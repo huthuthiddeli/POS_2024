@@ -19,11 +19,35 @@ export default class BetLocation{
         this._gameStarted = gameStarted;
     }
 
-    public async GetWinner(): Promise<void>{
+    public async GetWinner(): Promise<Record<string, number>>{
+      let winners : Record<string, number> = {};
 
-      //innit Dict
-      //let winners : {} = new {};
+      this._horses.forEach((winningHorse: Horse) => {
+          Object.entries(winningHorse.bets).forEach(([key, value]) => {
 
+              // Check if the bettor's horse won
+              let betWon: boolean = this._winner == winningHorse;
+
+              // Calculate the result based on the bet
+              let result: number = betWon ? value : -value;
+
+              // Update the bet result for the bettor
+              if (key in winners)
+              {
+                winners[key] += result;
+              }
+              else
+              {
+                console.log(result);
+                winners[key] = result;
+              }
+            }
+          );
+        }
+      );
+
+
+      return winners;
     }
 
 

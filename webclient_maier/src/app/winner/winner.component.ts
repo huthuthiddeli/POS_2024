@@ -16,14 +16,25 @@ import {NgForOf} from "@angular/common";
 })
 export class WinnerComponent {
 
-  public constructor(private router: Router, private client: MyhttpclientService){
+  public constructor(private router: Router){
   }
 
 
-  async onNgInit(): Promise<void>{
-    if(GameManager.GetInstance().user == undefined && GameManager.GetInstance().gamelocation == undefined){
+  async ngOnInit(): Promise<void>{
+    if(GameManager.GetInstance().user == undefined && GameManager.GetInstance().gamelocation == undefined && GameManager.GetInstance().gamelocation.gameFinished){
       await this.router.navigate(['login'], {queryParams: {"redirectcode": RedirectCodes["Login failed"]}});
       return;
+    }
+
+    if(GameManager.GetInstance().gamelocation.winner !== undefined){
+      let winner = await GameManager.GetInstance().gamelocation.GetWinner();
+
+
+      Object.entries(winner).forEach(([key, value]) => {
+        console.log("ITEMS: " + key + "  " + value);
+      })
+    }else{
+      console.log("No bets have been placed this game!");
     }
   }
 

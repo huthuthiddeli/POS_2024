@@ -3,7 +3,6 @@ package at.htlsaalfelden.main.Controller;
 import at.htlsaalfelden.main.Horserace.BetLocation;
 import at.htlsaalfelden.main.dtos.BetDTO;
 import at.htlsaalfelden.main.dtos.UserDTO;
-import at.htlsaalfelden.main.models.UserEntity;
 import at.htlsaalfelden.main.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,6 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Objects;
 
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/Pferderennen") // This means URL's start with /demo (after Application path)
@@ -37,8 +39,6 @@ public class MainController {
         }
 
         try {
-            //TODO: REFACTOR ENTITY SYSTEM IMPORTANT
-
             if(entity._username() != null){
                 LOGGER.info("[MAINCONTROLLER]\t\t"+mapper.writeValueAsString(entity));
                 location.addToActiveUserList(entity);
@@ -66,6 +66,29 @@ public class MainController {
             return "Game has not been initialized";
         }
 
+        try{
+            //TODO: REMOVE MONEY FROM BETTER
+            List<UserDTO> list = userService.findAll();
+
+            for(UserDTO item : list){
+                if(Objects.equals(item._username(), dto.better())){
+
+                    LOGGER.info(item._username());
+                    LOGGER.info(String.valueOf(item._money()));
+                    LOGGER.info(item._passwordHashed());
+                    UserDTO newObj = new UserDTO(item._username(), (int) (item._money() - dto.betValue()), item._passwordHashed());
+
+                    LOGGER.info(mapper.writeValueAsString(newObj));
+
+                    userService.update(newObj);
+                }
+            }
+
+        }catch (NullPointerException ex){
+            LOGGER.error("ERROR: " + ex.getMessage());
+        }
+
+
         return location.placeBet(dto.betValue(), dto.horseName(), dto.better());
     }
 
@@ -75,8 +98,6 @@ public class MainController {
         if(location == null){
             return null;
         }
-
-
 
         return mapper.writeValueAsString(location.getActiveUsers());
     }

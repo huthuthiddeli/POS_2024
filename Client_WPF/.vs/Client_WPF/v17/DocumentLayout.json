@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\showhorses.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:showhorses.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|solutionrelative:betlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BE7FA5E-0A5D-4EB8-964F-04E7DD4F3781}|Client_WPF.csproj|c:\\users\\jonas\\documents\\programming\\pos_2024\\client_wpf\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,19 +54,18 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-07T17:27:53.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T17:27:53.452Z"
             },
             {
               "$type": "Document",
@@ -94,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ShowHorses.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\ShowHorses.xaml.cs",
               "RelativeDocumentMoniker": "ShowHorses.xaml.cs",
@@ -106,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ShowHorses.xaml",
               "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\ShowHorses.xaml",
               "RelativeDocumentMoniker": "ShowHorses.xaml",
@@ -153,19 +152,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "BetLocation.cs",
               "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\BetLocation.cs",
               "RelativeDocumentMoniker": "BetLocation.cs",
               "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\BetLocation.cs",
               "RelativeToolTip": "BetLocation.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAB8AAAAAAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADYAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T10:37:24.45Z"
+              "WhenOpened": "2024-03-10T10:37:24.45Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HttpClient.cs",
               "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\HttpClient.cs",
               "RelativeDocumentMoniker": "HttpClient.cs",
@@ -173,21 +173,19 @@
               "RelativeToolTip": "HttpClient.cs",
               "ViewState": "AQIAAEwAAAAAAAAAAAAAAFIAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T10:37:24.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T10:37:24.451Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Jonas\\Documents\\Programming\\POS_2024\\Client_WPF\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAqwIcAAAA6AAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAABsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T10:37:24.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T10:37:24.455Z"
             }
           ]
         }

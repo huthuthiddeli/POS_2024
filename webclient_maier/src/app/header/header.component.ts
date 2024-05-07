@@ -93,8 +93,6 @@ export class HeaderComponent {
       await this.router.navigate(['/winner']);
       lastWinner = undefined;
 
-      //const betLocation = this.client
-
       return;
     }
 

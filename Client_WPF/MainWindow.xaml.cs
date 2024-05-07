@@ -1,12 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.IO;
-using System.Text;
-using System.Text.Json;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using Client_WPF;
-using System;
-using System.ComponentModel;
 using System.Windows.Controls;
 
 namespace Client_WPF

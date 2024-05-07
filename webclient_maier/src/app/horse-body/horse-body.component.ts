@@ -9,7 +9,6 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
-import Horse from "../../Utitlity/Horse";
 import {MatProgressBar} from "@angular/material/progress-bar";
 
 @Component({
@@ -35,10 +34,10 @@ export class HorseBodyComponent {
 
   constructor(private router: Router){}
 
-  ngOnInit(): void{
+  async ngOnInit(): Promise<void>{
     //Redirect to Login page if not logged in and Gamelocation is null
     if(GameManager.GetInstance().user == undefined && GameManager.GetInstance().gamelocation == undefined){
-      this.router.navigate(['login'], {queryParams: {"redirectcode": RedirectCodes["Login failed"]}});
+      await this.router.navigate(['login'], {queryParams: {"redirectcode": RedirectCodes["Login failed"]}});
       return;
     }
 

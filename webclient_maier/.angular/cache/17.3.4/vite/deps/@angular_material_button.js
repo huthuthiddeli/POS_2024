@@ -4,7 +4,7 @@ import {
   MatRippleLoader,
   MatRippleModule,
   Platform
-} from "./chunk-PK7YDVFZ.js";
+} from "./chunk-CQZXUAUI.js";
 import "./chunk-IJ2CJCNM.js";
 import {
   ANIMATION_MODULE_TYPE,

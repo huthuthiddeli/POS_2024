@@ -57,7 +57,6 @@ export class BetpageComponent {
     this.selHorse = GameManager.GetInstance().gamelocation.horses.find(hor => hor.name == horse.name);
 
     if(this.selHorse != undefined){
-      console.log(this.selHorse.name)
       this.betList = this.selHorse.bets;
     }
 
