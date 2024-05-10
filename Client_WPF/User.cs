@@ -10,6 +10,8 @@ namespace Client_WPF
 {
     public class User
     {
+
+        private string _id;
         private string _username;
         private int _money;
         private string password;
@@ -17,22 +19,30 @@ namespace Client_WPF
 
         public User() {}
 
-        public User(string username, string password, int money) 
+        public User(string id, string username, string password, int money) 
         { 
+            this._id = id;
             this._username = username;
             this._money = money;
             this.password = password;
             this._hashedPassword = EncryptionHelper.HashPassword(password);
         }
 
-        [JsonPropertyName("_username")]
+        [JsonPropertyName("id")]
+        public string Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        [JsonPropertyName("username")]
         public string Username
         {
             get { return _username; }
             set { _username = value; }
         }
 
-        [JsonPropertyName("_money")]
+        [JsonPropertyName("money")]
         public int Money
         {
             get { return this._money; }
@@ -46,7 +56,7 @@ namespace Client_WPF
             set { password = value; }
         }
 
-        [JsonPropertyName("_passwordHashed")]
+        [JsonPropertyName("passwordHashed")]
         public string HashedPassword
         {
             get { return this._hashedPassword; }

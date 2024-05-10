@@ -48,35 +48,6 @@ export class UserLoginComponent {
     let curUsername: string = "test";
 
 
-    /*
-    this.myHttpclient.log_in(curUsername, curPassword).then((async (successfull: boolean): Promise<boolean> => {
-
-        delay(1000);
-
-        if(!successfull){
-          this.logger.error("Could not log in!");
-        }
-
-
-
-        this.myHttpclient.init().then(async (successfull: boolean): Promise<boolean> => {
-
-          if(!successfull){
-            this.logger.error("could not init()!");
-            return false;
-          }
-
-          await this.router.navigate(['/']);
-
-
-          return true;
-        })
-
-        return true;
-      })
-    );
-     */
-
 
     let user: User|null = await this.myHttpclient.login(curUsername, curPassword);
 
@@ -93,6 +64,7 @@ export class UserLoginComponent {
       return;
     }
 
+    this.logger.log(GameManager.GetInstance().user.printDetails());
 
     await this.router.navigate(["/"]);
   }

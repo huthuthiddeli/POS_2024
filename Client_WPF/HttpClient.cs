@@ -147,16 +147,18 @@ namespace Client_WPF
             return u;
         }
 
-        public async Task<string> signIn(string username, string password)
+        public async Task<string> signIn(string _username, string password)
         {
-            string passwordHashed = EncryptionHelper.HashPassword(password);
+            string _passwordHashed = EncryptionHelper.HashPassword(password);
 
-            if(!EncryptionHelper.VerifyPassword(password, passwordHashed))
+            if(!EncryptionHelper.VerifyPassword(password, _passwordHashed))
             {
                 return "Error";
             }
 
-            string jsonObj = JsonSerializer.Serialize(new { username, password, passwordHashed });
+
+
+            string jsonObj = JsonSerializer.Serialize(new { _username, _passwordHashed });
 
             var content = new StringContent(jsonObj, Encoding.UTF8, "application/json");
             try

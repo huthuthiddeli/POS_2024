@@ -32,12 +32,19 @@ export class MyhttpclientService {
       'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
     });
 
-    if(!GameManager.GetInstance().user){
+    if(!GameManager.GetInstance().user || GameManager.GetInstance().user === undefined){
       this.logger.error("User not found");
       return null;
     }
 
     let better: string = GameManager.GetInstance().user.username;
+
+    if(betValue === undefined){
+      console.log("undefined")
+      return null;
+    }
+
+    console.log("Better:", better);
     let horseName: string = h.name;
 
     let json: string = JSON.stringify({betValue, better, horseName})
@@ -113,7 +120,7 @@ export class MyhttpclientService {
       'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
     });
 
-    let obj: User = new User(username, 0, hashedPassword);
+    let obj: User = new User("", username, 0, hashedPassword);
 
     let json: string = JSON.stringify(obj);
 
@@ -131,7 +138,7 @@ export class MyhttpclientService {
       let _hashedPassword: string = user['_passwordHashed'];
       let _money: number = user['_money'];
 
-      let actualObj: User = new User(_username, _money, _hashedPassword);
+      let actualObj: User = new User("", _username, _money, _hashedPassword);
 
       GameManager.GetInstance().user = actualObj;
 
@@ -157,16 +164,19 @@ export class MyhttpclientService {
     try {
       const response = await this.client.post<User>('http://localhost:8080/User/Login', jsonObj, { headers }).toPromise();
 
+      console.log(response);
+
       if (!response) {
         this.logger.error("undefined!");
         return null;
       }
 
-      let _username: string = response['_username'];
-      let _hashedPassword: string = response['_passwordHashed'];
-      let _money: number = response['_money'];
+      let _id: string = response['id'];
+      let _username: string = response['username'];
+      let _hashedPassword: string = response['passwordHashed'];
+      let _money: number = response['money'];
 
-      let actualuser: User = new User(_username, _money, _hashedPassword);
+      let actualuser: User = new User(_id, _username, _money, _hashedPassword);
 
       GameManager.GetInstance().user = actualuser;
 
