@@ -10,8 +10,6 @@ export class PasswordHasherService {
 
 
   public async hashPassword(password: string): Promise<string> {
-    let passwordHashed: string = await sha256(password);
-
-    return passwordHashed;
+    return await sha256(password);
   }
 }

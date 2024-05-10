@@ -8,10 +8,7 @@ This repo provides a spring boot application that connects to a local MongoDB da
 - [Installation](#installation)
 - [Webserver](#webserver)
 - [WPF Application](#wpf-application)
-
-# TODO
-- [ENCRYPTIONHELPOER](#encryptionhelper-todo-refactor)
-- [PASSWORD LOGIN/SING UP](#httpclientcs)
+- [Angular Webclient](#angular-webclient)
 
 ## Installation
 Simply download the repository and then fire up [**Intellij**](https://www.jetbrains.com/de-de/idea/) and start the project simply by pressing the button.
@@ -21,7 +18,7 @@ For the **Webclient** you may have to use:
 npm install
 ```
 
-after installing all of the dependencies you have to start the application using
+after installing all of the dependencies you can start the application in the CLI via
 
 ```bash
 ng serve
@@ -32,10 +29,13 @@ ng serve
 npm install -g @angular/cli
 ```
 
-
 ## Webserver
 
-The webserver uses [**Springboot**](https://start.spring.io) in order to build a webapplication utilizing the CRUD-Repository. Like your average webserver it runs on port 8080 but has no encryption on it.
+The webserver uses [**Springboot**](https://start.spring.io) in order to build a webapplication utilizing the CRUD-Repository. Like your average webserver it runs on port 8080 but has no implemented encryption right now. Theres a [**heartbeat**](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) algorithm implemented using **Spring-boot actuator** which returns up, when the server is live and the following **URL** has been called:
+
+```
+http://localhost:8080/actuator/health
+```
 
 ### Routes
 ---
@@ -81,17 +81,6 @@ Using this route, it is possible to iterate to the next game cycle and let the h
 
 Using this route, it is possible to gather all database documents from the connected **MongoDB** instance. Return type is a **List** of all saved **Users**.
 
-#### **Get Database item by ID**
-> **GET**  
-> **localhost:8080/Users/{ID}**
-
-Using this route, it is possible to retrieve a single **User** object from the database. This is usefull for finding the participants of the Bet. Return type is a single **User**.
-
-#### **Edit Database item by ID**
-> **PUT**  
-> **localhost:8080/Users/{ID}**
-
-Using this route, it is possible to change a single **User** object from the database. When successfull the return type of the route will be a **User** object, when a error occurs it will be **null**.
 
 ## **WPF Application**
 
@@ -110,7 +99,7 @@ Using this route, it is possible to change a single **User** object from the dat
 > - **Userdialog.xaml**
 
 ---
-### **BetLocaion.cs**
+### **BetLocation.cs**
 
 **Membervariables**
 
@@ -315,4 +304,294 @@ public async Task<User?> Login(string username, string password)
     return u;
 }
 ```
-Using this function, it is possible to send a request to the [API](#webserver) that will either let you continue your application or basically stop it completley from working. Parameters are **username**, **password** and **hashedpassword**.  WORK
+Using this function, it is possible to send a request to the [API](#webserver) that will either let you continue your application or basically stop it completley from working. Parameters are **username**, **password** and **hashedpassword**. 
+
+## Angular Webclient
+
+Utilizing the given functionality of [**Angular**](https://angular.io/) there are some important [**Services**](https://angular.io/tutorial/tour-of-heroes/toh-pt4) that help running the logic of the Webclient.
+
+### Important Services
+
+> - myhttpClient
+> - password-hasher
+
+Angular uses [**Components**](https://angular.io/guide/component-overview) to encapsulate the different components of the application.
+
+### Important Components
+
+> - betpage
+> - header
+> - horse-body
+> - not-found
+> - sing-up
+> - user-login
+> - winner
+
+There are some Utility classes that help creating objects and store data in generell.
+
+### Utility Classes
+
+> - BetLocation
+> - Gamemanager
+> - Horse
+> - Redirect
+> - User
+
+
+### myhttpClient
+
+---
+
+**Log in**
+```ts
+async login(_username: string, password: string): Promise<User | null> {
+    const _passwordHashed: string = await this.hasherService.hashPassword(password);
+    const _money: number = 0;
+    const jsonObj = JSON.stringify({ _username, _money, _passwordHashed });
+
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
+
+    try {
+      const response = await this.client.post<User>('http://localhost:8080/User/Login', jsonObj, { headers }).toPromise();
+
+      if (!response) {
+        console.error("undefined!");
+        return null;
+      }
+
+      let _id: string = response['id'];
+      let _username: string = response['username'];
+      let _hashedPassword: string = response['passwordHashed'];
+      let _money: number = response['money'];
+
+      let actualuser: User = new User(_id, _username, _money, _hashedPassword);
+
+      GameManager.GetInstance().user = actualuser;
+
+      return actualuser;
+
+    } catch (error) {
+      console.error('Error logging in:', error);
+      return null;
+    }
+  }
+```
+
+Give this Function the **username** and **password** in order to send a request to the [**API**](#login-user---user) which returns a **User** object when the login credentials match, otherwise a null retuned. The returned object will be set in the [**Singelton**](https://de.wikipedia.org/wiki/Singleton_(Entwurfsmuster)), so that it can be accessed from everywhere.
+
+---
+**Sing-up**
+
+```ts
+async sign_up(username: string, password: string): Promise<User | null>{
+
+    let hashedPassword: string = await this.hasherService.hashPassword(password);
+
+    const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
+
+    let obj: User = new User("", username, 0, hashedPassword);
+
+    let json: string = JSON.stringify(obj);
+
+    console.log(json);
+
+    try{
+      const user: User | undefined = await this.client.post<User>('http://localhost:8080/User/Create', json, {headers}).toPromise();
+
+      if(!user){
+        console.error("User not found");
+        return null;
+      }
+
+      let _username: string = user['_username'];
+      let _hashedPassword: string = user['_passwordHashed'];
+      let _money: number = user['_money'];
+
+      let actualObj: User = new User("", _username, _money, _hashedPassword);
+
+      GameManager.GetInstance().user = actualObj;
+
+      return actualObj;
+
+
+    }catch (error){
+      console.log("Error logging on:", error);
+      return null;
+    }
+  }
+```
+
+Give this function the **username** and the **password** and it will create a new **User** in the Database. The Result varies weither there is already an existing User or not. The returntype of this function is weither the User or null. This will be saved in the Singelton as well.
+
+---
+**Initiate the Game**
+
+``` ts
+async init(): Promise<BetLocation | null>{
+
+    const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
+
+    let json: string = JSON.stringify(GameManager.GetInstance().user);
+
+    try{
+      const betLocation: BetLocation|undefined = await this.client.post<BetLocation>('http://localhost:8080/Pferderennen/Game/innit', json, {headers}).toPromise();
+
+      if(!betLocation){
+        console.error("Error receiving betlocation!");
+        return null;
+      }
+
+      let actualObject: BetLocation = new BetLocation(
+        betLocation.location,
+        betLocation.horses,
+        betLocation.trackLength,
+        betLocation.gameFinished,
+        betLocation.winner,
+        betLocation.gameStarted
+      );
+
+      GameManager.GetInstance().gamelocation = actualObject;
+
+      return actualObject;
+
+    }catch (error){
+      console.error('Error loggin in:', error);
+      return null;
+    }
+  }
+```
+
+This function does not have any parameters but takes the **User** from the Singelton. It proceeds to make a request to the **API** and gets a [**Betlocation**](#betlocationcs) which will be then stored in the **Singelton**.
+
+---
+
+**Place Bets on different horses**
+
+```ts
+async blacePet(h:Horse, betValue: number): Promise<BetLocation | null>{
+
+    const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
+
+    if(!GameManager.GetInstance().user || GameManager.GetInstance().user === undefined){
+      console.error("User not found");
+      return null;
+    }
+
+    let better: string = GameManager.GetInstance().user.username;
+
+    if(betValue === undefined){
+      console.log("undefined")
+      return null;
+    }
+
+    console.log("Better:", better);
+    let horseName: string = h.name;
+
+    let json: string = JSON.stringify({betValue, better, horseName})
+
+    try{
+      const betLocation: BetLocation | undefined = await this.client.post<BetLocation>('http://localhost:8080/Pferderennen/Game/Bet', json, {headers}).toPromise();
+
+      if(!betLocation){
+        console.error("Could not find betLocation");
+        return null;
+      }
+
+      let actualBetLocation: BetLocation = new BetLocation(
+        betLocation.location,
+        betLocation.horses,
+        betLocation.trackLength,
+        betLocation.gameFinished,
+        betLocation.winner,
+        betLocation.gameStarted
+      );
+
+      GameManager.GetInstance().gamelocation = actualBetLocation;
+
+      return actualBetLocation;
+
+    }catch (error){
+      console.log("Error logging on:", error);
+      return null;
+    }
+  }
+``` 
+This function takes the chosen **Horse** and the **value** of the **bet**. The function checks if the **User** and the **BetLocation** exist then it proceeds to make the request to the **API** using the collected parameters and sending them in the **requestbody**. If the **horse** does not exist or the **value** is more than the **Users** balance is then it will return null, otherwise the place will be set and the **balance** of the player will be updated in the **database**. The result of the object will then be **deserialized** and then saved to the **GameManager**.
+
+---
+
+**Iterate horserace cycles**
+
+```ts
+async iterate(): Promise<BetLocation | null>{
+
+    const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
+
+    try{
+      const betLocation: BetLocation | undefined = await this.client.get<BetLocation>('http://localhost:8080/Pferderennen/Game/iterate', {headers}).toPromise();
+
+      if(!betLocation){
+        console.error("Betlocation null!");
+        return null;
+      }
+
+      let actualObject: BetLocation = new BetLocation(
+        betLocation.location,
+        betLocation.horses,
+        betLocation.trackLength,
+        betLocation.gameFinished,
+        betLocation.winner,
+        betLocation.gameStarted
+      );
+
+      GameManager.GetInstance().gamelocation = actualObject;
+
+      return actualObject;
+
+
+    }catch (error){
+      console.error('Loggin error:',error);
+      return null;
+    }
+  }
+```
+
+This function iterates the gamecycles and makes an **API** call to make progress in the horse race. The returning type is a new **BetLocation** object that will be **deserialized** and saved to the **singelton**.
+
+---
+
+### password-hasher service
+
+```ts
+public async hashPassword(password: string): Promise<string> {
+    let passwordHashed: string = await sha256(password);
+
+    return passwordHashed;
+  }
+```
+
+It's a simple function that [**hashes**](https://en.wikipedia.org/wiki/SHA-2) a **Password** and returns the corresponding **hashed** string value of that password.
+
+graph TD
+    A[Enter Chart Definition] --> B(Preview)
+    B --> C{decide}
+    C --> D[Keep]
+    C --> E[Edit Definition]
+    E --> B
+    D --> F[Save Image and Code]
+    F --> B

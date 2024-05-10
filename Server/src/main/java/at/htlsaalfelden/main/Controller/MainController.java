@@ -69,19 +69,12 @@ public class MainController {
         }
 
         try{
-            //TODO: REMOVE MONEY FROM BETTER
             List<Usermodel> list = actualUserService.findAll();
 
             for(int i = 0; i < list.size(); i++){
-                LOGGER.info("Username: " + list.get(i).getUsername());
-                LOGGER.info("DTOUSERNAME: " + dto.better());
                 if(Objects.equals(list.get(i).getUsername(), dto.better())){
 
-                    LOGGER.info("ALKAHFÖLAH " + list.get(i).toString());
-
                     Usermodel newObj = new UserDTO(list.get(i).getUsername(), (int) (list.get(i).getMoney() - dto.betValue()), list.get(i).getPasswordHashed()).ToUsermodel();
-
-                    LOGGER.info(mapper.writeValueAsString(newObj));
 
                     Usermodel result = actualUserService.updateFirst(newObj);
 

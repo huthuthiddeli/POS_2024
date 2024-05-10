@@ -31,7 +31,6 @@ public class UserController {
     }
 
 
-
     @GetMapping("/Users")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody ResponseEntity<List<Usermodel>> getAllUsers() throws JsonProcessingException {
@@ -45,22 +44,13 @@ public class UserController {
     public @ResponseBody ResponseEntity<UserDTO> createAccount(@RequestBody UserDTO u) throws JsonProcessingException {
         List<Usermodel> users = actualUserService.findAll();
 
-        for(Usermodel model : users){
-            LOGGER.info(model.toString());
-        }
-
-
-
         for (Usermodel existingUser : users) {
             if (u.ToUsermodel().equals(existingUser)) {
                 return null;
             }
         }
 
-
         UserDTO actualObj = new UserDTO(u.get_username(), 1000, u.get_passwordHashed());
-
-        LOGGER.info(mapper.writeValueAsString(actualObj));
 
         actualUserService.createUser(actualObj.ToUsermodel());
 

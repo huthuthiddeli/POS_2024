@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import GameManager from "../../Utitlity/GameManager";
-import {RedirectCodes} from "../../Lib/Redirect";
+import {RedirectCodes} from "../../Utitlity/Redirect";
 import {Router} from "@angular/router";
 import {MyhttpclientService} from "../myhttpclient.service";
 import {NgForOf} from "@angular/common";

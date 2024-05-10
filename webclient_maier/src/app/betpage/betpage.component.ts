@@ -6,7 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {LoggerService} from "../logger.service";
 import {MyhttpclientService} from "../myhttpclient.service";
 import {Router} from "@angular/router";
-import {RedirectCodes} from "../../Lib/Redirect";
+import {RedirectCodes} from "../../Utitlity/Redirect";
 
 @Component({
   selector: 'app-betpage',

@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import Horse from "../Utitlity/Horse";
 import GameManager from "../Utitlity/GameManager";
-import {LoggerService} from "./logger.service";
 import BetLocation from "../Utitlity/BetLocation";
 import {PasswordHasherService} from "./password-hasher.service";
 import User from "../Utitlity/User";
-import {Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {rejects} from "node:assert";
-import {resolve} from "node:path";
-import {B} from "@angular/cdk/keycodes";
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +12,7 @@ import {B} from "@angular/cdk/keycodes";
 export class MyhttpclientService {
 
   constructor(private client: HttpClient,
-              private logger: LoggerService,
-              private hasherService: PasswordHasherService,
-              private router: Router) { }
+              private hasherService: PasswordHasherService) { }
 
 
 
@@ -33,7 +25,7 @@ export class MyhttpclientService {
     });
 
     if(!GameManager.GetInstance().user || GameManager.GetInstance().user === undefined){
-      this.logger.error("User not found");
+      console.error("User not found");
       return null;
     }
 
@@ -53,7 +45,7 @@ export class MyhttpclientService {
       const betLocation: BetLocation | undefined = await this.client.post<BetLocation>('http://localhost:8080/Pferderennen/Game/Bet', json, {headers}).toPromise();
 
       if(!betLocation){
-        this.logger.error("Could not find betLocation");
+        console.error("Could not find betLocation");
         return null;
       }
 
@@ -130,7 +122,7 @@ export class MyhttpclientService {
       const user: User | undefined = await this.client.post<User>('http://localhost:8080/User/Create', json, {headers}).toPromise();
 
       if(!user){
-        this.logger.error("User not found");
+        console.error("User not found");
         return null;
       }
 
@@ -164,10 +156,8 @@ export class MyhttpclientService {
     try {
       const response = await this.client.post<User>('http://localhost:8080/User/Login', jsonObj, { headers }).toPromise();
 
-      console.log(response);
-
       if (!response) {
-        this.logger.error("undefined!");
+        console.error("undefined!");
         return null;
       }
 
@@ -201,7 +191,7 @@ export class MyhttpclientService {
       const betLocation: BetLocation|undefined = await this.client.post<BetLocation>('http://localhost:8080/Pferderennen/Game/innit', json, {headers}).toPromise();
 
       if(!betLocation){
-        this.logger.error("Error receiving betlocation!");
+        console.error("Error receiving betlocation!");
         return null;
       }
 
