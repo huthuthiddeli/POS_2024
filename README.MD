@@ -587,6 +587,7 @@ public async hashPassword(password: string): Promise<string> {
 
 It's a simple function that [**hashes**](https://en.wikipedia.org/wiki/SHA-2) a **Password** and returns the corresponding **hashed** string value of that password.
 
+````mermaid
 graph TD
     A[Enter Chart Definition] --> B(Preview)
     B --> C{decide}
@@ -595,3 +596,4 @@ graph TD
     E --> B
     D --> F[Save Image and Code]
     F --> B
+```
