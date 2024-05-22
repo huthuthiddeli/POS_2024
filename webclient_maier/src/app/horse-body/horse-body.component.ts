@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {Component, ViewEncapsulation, OnInit, ViewChild} from '@angular/core';
 import GameManager from "../../Utitlity/GameManager";
-import {Router, RouterLink} from "@angular/router";
+import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {RedirectCodes} from "../../Utitlity/Redirect";
 import {MatDrawer, MatDrawerContainer, MatSidenavContainer} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
@@ -23,7 +23,7 @@ import {MatProgressBar} from "@angular/material/progress-bar";
     MatNavList,
     MatListItem,
     MatButton,
-    MatIcon, FormsModule, MatProgressBar,
+    MatIcon, FormsModule, MatProgressBar, RouterLinkActive,
   ],
   templateUrl: './horse-body.component.html',
   styleUrl: './horse-body.component.css',

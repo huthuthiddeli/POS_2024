@@ -64,7 +64,6 @@ public class UserController {
         List<Usermodel> users = actualUserService.findAll();
 
         try{
-
             for(Usermodel existingUser : users){
                 if(userDTO.ToUsermodel().equals(existingUser)){
                     return new ResponseEntity<>(existingUser, HttpStatus.ACCEPTED);

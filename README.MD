@@ -5,10 +5,18 @@
 This repo provides a spring boot application that connects to a local MongoDB database and provides basic CRUD-Operation.
 
 ## Table of Contents 
-- [Installation](#installation)
-- [Webserver](#webserver)
-- [WPF Application](#wpf-application)
-- [Angular Webclient](#angular-webclient)
+- [**Installation**](#installation)
+- [**Webserver**](#webserver)
+- [**WPF Application**](#wpf-application)
+- [**Angular Webclient**](#angular-webclient)
+- [**Diagramme**](#diagrams)
+- [**Sources**](#sources)
+- [**Discussions of Results**](#discussion-of-results)
+
+## TODO
+> - [CRUD-REPOS](#discussion-of-results)
+> - [Peristance](#user)
+> - [SHA256](#user)
 
 ## Installation
 Simply download the repository and then fire up [**Intellij**](https://www.jetbrains.com/de-de/idea/) and start the project simply by pressing the button.
@@ -31,7 +39,7 @@ npm install -g @angular/cli
 
 ## Webserver
 
-The webserver uses [**Springboot**](https://start.spring.io) in order to build a webapplication utilizing the CRUD-Repository. Like your average webserver it runs on port 8080 but has no implemented encryption right now. Theres a [**heartbeat**](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) algorithm implemented using **Spring-boot actuator** which returns up, when the server is live and the following **URL** has been called:
+The webserver uses [**Springboot**](https://start.spring.io) in order to build a webapplication utilizing the CRUD-Repository. Like your average webserver it runs on port 8080 but has no implemented encryption right now. Theres a [**heartbeat**](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) algorithm implemented using **Spring-boot actuator** which returns up, when the server is live and the following **URL** has been visited:
 
 ```
 http://localhost:8080/actuator/health
@@ -80,6 +88,20 @@ Using this route, it is possible to iterate to the next game cycle and let the h
 > **localhost:8080/Users/Users**
 
 Using this route, it is possible to gather all database documents from the connected **MongoDB** instance. Return type is a **List** of all saved **Users**.
+
+### **User** 
+
+The data for the client is saved [**persistant**](https://www.mongodb.com/resources/basics/databases/data-persistence) on the database **BUT** because of the [**SHA256**](https://www.google.com/search?client=opera-gx&q=sha256+algorithm&sourceid=opera&ie=UTF-8&oe=UTF-8) algorithm it is not possible to **ALTER** **Users**. If the used **encryption** was changed it would be easy to modify this code in order to achive the goal of **altering** **User** objects.
+
+In Order to saved the data the right way a **User** class is used which looks like follows.
+
+```java
+    private String _username;
+    private int _money;
+    private String  _passwordHashed;
+```
+
+
 
 
 ## **WPF Application**
@@ -587,13 +609,77 @@ public async hashPassword(password: string): Promise<string> {
 
 It's a simple function that [**hashes**](https://en.wikipedia.org/wiki/SHA-2) a **Password** and returns the corresponding **hashed** string value of that password.
 
-````mermaid
-graph TD
-    A[Enter Chart Definition] --> B(Preview)
-    B --> C{decide}
-    C --> D[Keep]
-    C --> E[Edit Definition]
-    E --> B
-    D --> F[Save Image and Code]
-    F --> B
+## Diagrams
+
+```mermaid
+---
+title: Use case diagramm
+---
+stateDiagram-v2
+    start_game --> Authentication 
+      Authentication --> Display_Horses 
+      state fork_state <<fork>>
+      state join_state <<join>>
+      Display_Horses --> fork_state
+      fork_state --> Bet_Page
+      fork_state --> Iterate_Game
+      Bet_Page --> join_state
+      Iterate_Game --> join_state
+      join_state --> finished
+  
 ```
+
+
+### Sources
+> https://www.ionos.at/digitalguide/websites/web-entwicklung/anwendungsfalldiagramm/
+
+
+## Discussion of results
+
+### Clients
+
+> At the end we have 2 functioning clients, one for the browser and the other one using WPF. These clients provide basic interactions with the [**Backend**](#webserver) so that the [**User**](#user) is able to use the provided [**CRUD**](https://de.wikipedia.org/wiki/CRUD)-Operations which enables them to place bets, create Users ect.
+
+
+### Backend
+
+> Without a backend nothing in this **repository** would work, thats why we created a simple [**Server**](#webserver) that utilized the already mentioned **CRUD**-Opterations and handles the basic logic for the **horserace**. 
+
+
+### Configurations
+
+> Because of the used structure we need [**CORS-Configurations**](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) which help us allow the communication between **Server** and **Webclient**. The **WPF**-Application does not need any specific configuration but for the **Webapplication** it is neccessary to implement the following line to the [**Request-Header**](https://developer.mozilla.org/en-US/docs/Glossary/Request_header).
+
+```ts
+const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+});
+```
+
+For the **Springboot-Application** we need to create a new [**Bean**](https://www.baeldung.com/spring-bean) which holds the the majority **configurations**. 
+
+```java
+ @Bean
+  public WebMvcConfigurer corsConfigurer() {
+      return new WebMvcConfigurer() {
+          @Override
+          public void addCorsMappings(CorsRegistry registry) {
+              registry.addMapping("/**")
+                      .allowedOrigins("http://localhost:4200") // Add your Angular app's origin
+                      .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
+                      .allowedHeaders("*"); // Allowed headers
+          }
+      };
+    }
+```
+After creating the **Bean** with the configuration we need to add a new **Annotation** to our **Controller** in order to allow communication for the **Webclient**.
+
+
+```java
+@CrossOrigin(origins="http://localhost:4200")
+```
+
+### Summary
+
+In summary this project helped us to get the basics of **Springboot**, **Frontend**-programming like **WPF** or **Angular** in this case. In generell we should now have a basic understanding of Webprogramming and why it is so important to understand. Problems that may have occured have been resolved pretty easily because of the already existing documentation and of course **AI** Technology.

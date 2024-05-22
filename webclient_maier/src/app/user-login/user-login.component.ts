@@ -5,8 +5,6 @@ import { FormsModule } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MyhttpclientService } from "../myhttpclient.service";
 import GameManager from "../../Utitlity/GameManager";
-import {LoggerService} from "../logger.service";
-import {delay} from "rxjs";
 import User from "../../Utitlity/User";
 import BetLocation from "../../Utitlity/BetLocation";
 
@@ -27,8 +25,7 @@ export class UserLoginComponent {
 
   constructor(private myHttpclient: MyhttpclientService,
               private router: Router,
-              private activeRoute: ActivatedRoute,
-              private logger: LoggerService,) {}
+              private activeRoute: ActivatedRoute) {}
 
 
     ngOnInit(){
@@ -52,7 +49,7 @@ export class UserLoginComponent {
     let user: User|null = await this.myHttpclient.login(curUsername, curPassword);
 
     if(user == null){
-      this.logger.error("User couldn't been resolved!");
+      console.error("User couldn't been resolved!");
       return;
     }
 
@@ -60,12 +57,11 @@ export class UserLoginComponent {
     let gameState: BetLocation|null = await this.myHttpclient.init();
 
     if(gameState == null){
-      this.logger.error("BetLocation couldn't been resolved!");
+      console.error("BetLocation couldn't been resolved!");
       return;
     }
 
-    this.logger.log(GameManager.GetInstance().user.printDetails());
-
+    console.log(GameManager.GetInstance().user.printDetails());
     await this.router.navigate(["/"]);
   }
 

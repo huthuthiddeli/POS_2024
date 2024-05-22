@@ -3,7 +3,6 @@ import {NgForOf} from "@angular/common";
 import GameManager from "../../Utitlity/GameManager";
 import Horse from "../../Utitlity/Horse";
 import {FormsModule} from "@angular/forms";
-import {LoggerService} from "../logger.service";
 import {MyhttpclientService} from "../myhttpclient.service";
 import {Router} from "@angular/router";
 import {RedirectCodes} from "../../Utitlity/Redirect";
@@ -28,7 +27,7 @@ export class BetpageComponent {
   protected selHorse: Horse;
   protected submitStatus = false;
 
-  constructor(private logger: LoggerService, private client: MyhttpclientService, private router: Router) {
+  constructor(private client: MyhttpclientService, private router: Router) {
     this.horses = []
     this.betList = {}
     this.maxBetValue = 0;
@@ -60,8 +59,8 @@ export class BetpageComponent {
       this.betList = this.selHorse.bets;
     }
 
-    this.logger.log("new bets:");
-    this.logger.log(this.selHorse.bets);
+    console.log("new bets:");
+    console.log(this.selHorse.bets);
   }
 
   async placeBet(selectedHorse: Horse){
@@ -75,7 +74,7 @@ export class BetpageComponent {
     let betLocation = await this.client.blacePet(selectedHorse, this.maxBetValue);
 
     if(betLocation == null){
-      this.logger.error("Couldn't receive betlocation!");
+      console.error("Couldn't receive betlocation!");
       return;
     }
 

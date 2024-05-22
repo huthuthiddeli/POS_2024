@@ -213,4 +213,29 @@ export class MyhttpclientService {
       return null;
     }
   }
+
+  public async GetUsers(): Promise<User[] | null>{
+
+    const headers:HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // Allow all origins, you can customize this
+    });
+
+
+    try{
+      const users: User[]|undefined = await this.client.get<User[]|undefined>('http://localhost:8080/Pferderennen/Game/ActiveUsers', {headers}).toPromise();
+
+      if(!users){
+        console.error("Could not retreive users!");
+        return null;
+      }
+
+      console.log(users);
+
+      return null;
+    }catch(err){
+      console.error("Loggin error: ", err);
+      return null;
+    }
+  }
 }

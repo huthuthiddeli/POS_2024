@@ -13,7 +13,6 @@ import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {BetpageComponent} from "../betpage/betpage.component";
 import {MyhttpclientService} from "../myhttpclient.service";
-import {LoggerService} from "../logger.service";
 import BetLocation from "../../Utitlity/BetLocation";
 import Horse from "../../Utitlity/Horse";
 
@@ -49,7 +48,6 @@ export class HeaderComponent {
 
   constructor(private myHttpclient: HttpClient,
               private client: MyhttpclientService,
-              private logger: LoggerService,
               private router: Router) {
     this.title = "Pferderennen";
   }
@@ -99,6 +97,6 @@ export class HeaderComponent {
     this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/']);
     });
-    this.logger.log("reloaded!");
+    console.log("reloaded!");
   }
 }
