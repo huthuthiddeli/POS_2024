@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,8 +44,6 @@ public class MainController {
                 LOGGER.info("[MAINCONTROLLER]\t\t"+mapper.writeValueAsString(entity));
                 location.addToActiveUserList(entity);
             }
-
-
         }
         catch(Exception e){
             LOGGER.error(e.getMessage());
@@ -74,7 +71,10 @@ public class MainController {
             for(int i = 0; i < list.size(); i++){
                 if(Objects.equals(list.get(i).getUsername(), dto.better())){
 
-                    Usermodel newObj = new UserDTO(list.get(i).getUsername(), (int) (list.get(i).getMoney() - dto.betValue()), list.get(i).getPasswordHashed()).ToUsermodel();
+                    Usermodel newObj = new UserDTO(list.get(i).getUsername(),
+                            (int) (list.get(i).getMoney() - dto.betValue()),
+                            list.get(i).getPasswordHashed()
+                    ).ToUsermodel();
 
                     Usermodel result = actualUserService.updateFirst(newObj);
 
@@ -85,7 +85,6 @@ public class MainController {
         }catch (NullPointerException ex){
             LOGGER.error("ERROR: " + ex.getMessage());
         }
-
 
         return "empty";
     }
@@ -115,11 +114,11 @@ public class MainController {
         return mapper.writeValueAsString(location);
     }
 
-
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public final Exception handleAllExceptions(RuntimeException e) {
         LOGGER.error("Internal server error.", e);
         return e;
     }
+
 }

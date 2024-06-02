@@ -22,4 +22,6 @@ public interface ActualUserRepository extends MongoRepository<Usermodel, String>
 
     Usermodel findOneByUsername(String username);
 
+
+    void deleteAll();
 }

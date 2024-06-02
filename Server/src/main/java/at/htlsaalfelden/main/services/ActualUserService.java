@@ -61,6 +61,10 @@ public class ActualUserService {
         return user;
     }
 
+    public void DeleteAll(){
+        this.repository.deleteAll();
+    }
+
 
     public List<Usermodel> findAll(){
         return repository.findAll();

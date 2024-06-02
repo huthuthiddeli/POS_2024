@@ -2,13 +2,13 @@
   <!-- Name -->
   <div class="mb-4">
     <label class="block text-gray-700 font-bold mb-2">Name:</label>
-    <span class="text-gray-900 font-semibold">{{ GameManager.GetInstance().gamelocation?.winner?.name ?? 'N/A'}}</span>
+    <span class="text-gray-900 font-semibold">{{ GameManager.GetInstance().gamelocation.winner.name}}</span>
   </div>
 
   <!-- Speed -->
   <div class="mb-4">
     <label class="block text-gray-700 font-bold mb-2">Speed:</label>
-    <span class="text-gray-900 font-semibold">{{ GameManager.GetInstance().gamelocation.winner?.speed ?? 'N/A'}}</span>
+    <span class="text-gray-900 font-semibold">{{ GameManager.GetInstance().gamelocation.winner.speed}}</span>
   </div>
 
   <!-- Bets -->
@@ -16,7 +16,7 @@
     <label class="block text-gray-700 font-bold mb-2">Bets:</label>
     <div>
       <ul>
-        <li *ngFor="let bet of Object.keys(GameManager.GetInstance().gamelocation?.winner?.bets ?? 'N/A')">
+        <li *ngFor="let bet of Object.keys(GameManager.GetInstance().gamelocation.winner?.bets ?? 'N/A')">
           {{ bet }}: {{ GameManager.GetInstance().gamelocation.winner.bets[bet] }}
         </li>
       </ul>
@@ -26,6 +26,6 @@
   <!-- Run Distance -->
   <div class="mb-4">
     <label class="block text-gray-700 font-bold mb-2">Run Distance:</label>
-    <span class="text-gray-900 font-semibold">{{ GameManager.GetInstance().gamelocation.winner?.runDistance ?? 'N/A' }}</span>
+    <span class="text-gray-900 font-semibold">{{ GameManager.GetInstance().gamelocation.winner.runDistance }}</span>
   </div>
 </div>

@@ -2,24 +2,42 @@
 
 ## Description
 
-This repo provides a spring boot application that connects to a local MongoDB database and provides basic CRUD-Operation.
+This repo provides a spring boot application that connects to a local MongoDB database and provides basic CRUD-Operation. This project should resemble a horse race where the players are able to bet on different horses.
 
 ## Table of Contents 
 - [**Installation**](#installation)
 - [**Webserver**](#webserver)
 - [**WPF Application**](#wpf-application)
 - [**Angular Webclient**](#angular-webclient)
-- [**Diagramme**](#diagrams)
+- [**Diagrams**](#diagrams)
 - [**Sources**](#sources)
 - [**Discussions of Results**](#discussion-of-results)
 
-## TODO
-> - [CRUD-REPOS](#discussion-of-results)
-> - [Peristance](#user)
-> - [SHA256](#user)
-
 ## Installation
-Simply download the repository and then fire up [**Intellij**](https://www.jetbrains.com/de-de/idea/) and start the project simply by pressing the button.
+
+### prerequesits
+In order for this project to work on every device it is important that the following [**compilers**](https://www.techtarget.com/whatis/definition/compiler).
+
+**NODE**  
+Check version with 
+```bash
+  node -v
+```
+If the version is too old it would be better to upgrade to the latest version. If you dont have it installed, you can simply do that by visiting there [**Website**](https://nodejs.org/en/download/package-manager).
+
+**JAVA**
+
+Check if java is installed with
+```bash
+  java --version
+```
+
+For this Project it is **NECASSERY** to have one of the latest versions of JAVA because otherwise [**Records**](https://docs.oracle.com/en/java/javase/17/language/records.html) will not work, which will negativly implact the project or even **prevent** it from compiling.
+
+
+**Staring Process**
+
+Simply download the repository and then fire up [**Intellij**](https://www.jetbrains.com/de-de/idea/) and start the project simply by pressing the start button.
 For the **Webclient** you may have to use:
 
 ```bash
@@ -33,7 +51,7 @@ ng serve
 ```
 **IMPORTANT** to note is that the **Angular CLI** is needed in order for this to work. You can install that dependency with node or at [**Angular**](https://angular.io/cli):
 
-```
+```bash
 npm install -g @angular/cli
 ```
 
@@ -51,17 +69,17 @@ http://localhost:8080/actuator/health
 > **POST**  
 > **localhost:8000/Pferderennen/Game/innit**
 
-Using an **optional** parameter in the request body it is possible to place bets and generely use the betsystem like it's intendet to. The return type of this route is the **Betlocation** object, which is used for the main game and provides all information about the current game.
+Using an **optional** parameter in the request body it is possible to place bets and generally use the betsystem like it's intended to. The return type of this route is the **Betlocation** object, which is used for the main game and provides all information about the current game.
 
 #### **Place Bet - BetLocation**
 > **POST**  
 > **localhost:8080/Pferderennen/Game/Bet**
 
-Using the requestparameters important data like **Username**, **bet ammount** and **Horse name** are provided for the server in order to place the bet for the game. When successfull the return type of the function is the **Betlocaction** represented as a [**JSON**](https://www.oracle.com/de/database/what-is-json/#:~:text=JavaScript%20Object%20Notation%20(JSON)%20ist,da%20keine%20Deserialisierung%20erforderlich%20ist.) object.
+Using the requestparameters such as **Username**, **bet ammount** and **Horse name** are provided for the server in order to place the bet for the game. When successfull the return type of the function is the **Betlocaction** represented as a [**JSON**](https://www.oracle.com/de/database/what-is-json/#:~:text=JavaScript%20Object%20Notation%20(JSON)%20ist,da%20keine%20Deserialisierung%20erforderlich%20ist.) object.
 
 #### **Create User - User**
 > **POST**  
-> **locahost:8080/User/Create**
+> **localhost:8080/User/Create**
 
 Using this route, it is possible to create a **User**, save and use then later on to change values. The route checks wether the object already exists in the database or not.
 
@@ -284,7 +302,7 @@ public async Task<string> PlaceBet(string betValue, string better, string horseN
 }
 ```
 Using this function, it is possible to place a bet via the [API](#webserver). The parameters for this functions are **betValue** that resemble the ammount of credits that will be locked on the horse. **better** is automaticly collected, when logged in to a account.  
-**LOGIN IS NESSESECARY!** **horsename** is the name of the horse that has been choosen by the player to bet on. Parameters will be transmitted via. **Requestparameter**.  
+**LOGIN IS NECESSARY!** **horsename** is the name of the horse that has been choosen by the player to bet on. Parameters will be transmitted via. **Requestparameter**.  
 
 ---
 **Log into the Database**
@@ -402,7 +420,7 @@ async login(_username: string, password: string): Promise<User | null> {
   }
 ```
 
-Give this Function the **username** and **password** in order to send a request to the [**API**](#login-user---user) which returns a **User** object when the login credentials match, otherwise a null retuned. The returned object will be set in the [**Singelton**](https://de.wikipedia.org/wiki/Singleton_(Entwurfsmuster)), so that it can be accessed from everywhere.
+Give this Function the **username** and **password** in order to send a request to the [**API**](#login-user---user) which returns a **User** object when the login credentials match, otherwise a null retuned. The returned object will be set in the [**Singleton**](https://de.wikipedia.org/wiki/Singleton_(Entwurfsmuster)), so that it can be accessed from everywhere.
 
 ---
 **Sing-up**
@@ -590,7 +608,7 @@ async iterate(): Promise<BetLocation | null>{
       console.error('Loggin error:',error);
       return null;
     }
-  }
+}
 ```
 
 This function iterates the gamecycles and makes an **API** call to make progress in the horse race. The returning type is a new **BetLocation** object that will be **deserialized** and saved to the **singelton**.
@@ -604,7 +622,7 @@ public async hashPassword(password: string): Promise<string> {
     let passwordHashed: string = await sha256(password);
 
     return passwordHashed;
-  }
+}
 ```
 
 It's a simple function that [**hashes**](https://en.wikipedia.org/wiki/SHA-2) a **Password** and returns the corresponding **hashed** string value of that password.
@@ -628,11 +646,66 @@ stateDiagram-v2
       join_state --> finished
   
 ```
+---
+
+```mermaid
+---
+title: Squence diagram
+---
+
+sequenceDiagram
+    participant User
+    participant Angular_Webclient
+    participant WPF_App
+    participant Springboot_API
+    participant MongoDB
+    
+    User->>Angular_Webclient: Login
+    Angular_Webclient->>Springboot_API: POST /User/Login
+    Springboot_API->>MongoDB: Query User
+    MongoDB-->>Springboot_API: User Data
+    Springboot_API-->>Angular_Webclient: User Object
+    Angular_Webclient-->>User: Display User Info
+
+    User->>Angular_Webclient: Place Bet
+    Angular_Webclient->>Springboot_API: POST /Pferderennen/Game/Bet
+    Springboot_API->>MongoDB: Update Bet Data
+    MongoDB-->>Springboot_API: Confirmation
+    Springboot_API-->>Angular_Webclient: BetLocation Object
+    Angular_Webclient-->>User: Display Bet Confirmation
+
+``` 
+---
+
+```mermaid
+---
+title: Component Diagram
+---
+
+graph TD;
+    subgraph "Frontend"
+        Angular_App
+        WPF_App
+    end
+
+    subgraph "Backend"
+      Angular_App -->|HTTP requests| Springboot_API
+      WPF_App -->|HTTP requests| Springboot_API
+    end
+
+    subgraph "Database"
+      Springboot_API --> MongoDB
+    end
+
+```
+
+
 
 
 ### Sources
-> https://www.ionos.at/digitalguide/websites/web-entwicklung/anwendungsfalldiagramm/
-
+> https://www.ionos.at/digitalguide/websites/web-entwicklung/anwendungsfalldiagramm/  
+> https://angular.io/guide/forms-overview  
+> https://www.typescriptlang.org/ 
 
 ## Discussion of results
 
@@ -670,8 +743,8 @@ For the **Springboot-Application** we need to create a new [**Bean**](https://ww
                       .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
                       .allowedHeaders("*"); // Allowed headers
           }
-      };
-    }
+    };
+  }
 ```
 After creating the **Bean** with the configuration we need to add a new **Annotation** to our **Controller** in order to allow communication for the **Webclient**.
 
@@ -682,4 +755,4 @@ After creating the **Bean** with the configuration we need to add a new **Annota
 
 ### Summary
 
-In summary this project helped us to get the basics of **Springboot**, **Frontend**-programming like **WPF** or **Angular** in this case. In generell we should now have a basic understanding of Webprogramming and why it is so important to understand. Problems that may have occured have been resolved pretty easily because of the already existing documentation and of course **AI** Technology.
+In summary this project helped us to get the basics of **Springboot**, **Frontend**-programming like **WPF** or **Angular** in this case. In generell we should now have a basic understanding of Webprogramming and why it is so important to understand. Problems that may have occured have been resolved pretty easily because of the already existing documentation and of course **AI** Technology. In generel we can say that we learned how to create a simple **Client-Server** Application which is a huge step in terms of programming.

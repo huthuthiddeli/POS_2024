@@ -76,6 +76,16 @@ public class UserController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
+
+    @DeleteMapping("/DeleteAll")
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody void DeleteAll(){
+        try{
+            actualUserService.DeleteAll();
+        }catch (Exception ex){
+        }
+    }
+
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public final Exception handleAllExceptions(RuntimeException e) {

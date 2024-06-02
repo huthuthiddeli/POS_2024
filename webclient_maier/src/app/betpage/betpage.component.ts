@@ -26,11 +26,13 @@ export class BetpageComponent {
   protected data: any;
   protected selHorse: Horse;
   protected submitStatus = false;
+  protected newValue: number;
 
   constructor(private client: MyhttpclientService, private router: Router) {
     this.horses = []
     this.betList = {}
     this.maxBetValue = 0;
+    this.newValue = 0;
     this.selHorse = new Horse("", 0, this.betList);
   }
 
@@ -71,7 +73,12 @@ export class BetpageComponent {
       return;
     }
 
-    let betLocation = await this.client.blacePet(selectedHorse, this.maxBetValue);
+    if(this.newValue == 0){
+      return;
+    }
+
+
+    let betLocation = await this.client.blacePet(selectedHorse, this.newValue);
 
     if(betLocation == null){
       console.error("Couldn't receive betlocation!");
