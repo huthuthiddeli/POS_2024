@@ -45,8 +45,13 @@ export class UserLoginComponent {
     let curUsername: string = "test";
 
 
+    let user: User|null;
 
-    let user: User|null = await this.myHttpclient.login(curUsername, curPassword);
+    if(this.username !== '' && this.password !== ''){
+      user = await this.myHttpclient.login(this.username, this.password);
+    }else{
+      user = await this.myHttpclient.login(curUsername, curPassword);
+    }
 
     if(user == null){
       console.error("User couldn't been resolved!");
